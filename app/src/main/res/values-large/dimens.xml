@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!--TextView 1-->
+    <dimen name="margin_left">5dp</dimen>
+    <dimen name="text_size">20sp</dimen>
+
+    <!--TextView-->
+    <dimen name="padding_top">20dp</dimen>
+
+    <!--EditText-->
+    <dimen name="space_right">8dp</dimen>
+    <dimen name="space_left">4dp</dimen>
+    <dimen name="space_top">15dp</dimen>
+    <dimen name="font_size">18sp</dimen>
+    <dimen name="image_view_height_width">160dp</dimen>
+    <dimen name="image_textsize">26sp</dimen>
+
+    <!--Button-->
+    <dimen name="gap_left">30dp</dimen>
+    <dimen name="size_font">19sp</dimen>
+    <dimen name="top_space">2dp</dimen>
+    <dimen name="left_margin">10dp</dimen>
+    <dimen name="margin_bottom">30dp</dimen>
+    <dimen name="margin_top">15dp</dimen>
+    <dimen name="login">5dp</dimen>\
+    <dimen name="code_margin">11dp</dimen>
+    <dimen name="bottom_space">20dp</dimen>
+    <dimen name="btn_space">10dp</dimen>
+
+    <!--Text size service by category-->
+
+    <dimen name="fontsize">19sp</dimen>
+
+    <!--Edittext service by category-->
+    <dimen name="size">15sp</dimen>
+
+    <!--Spacing Service by category-->
+
+    <dimen name="sentnce_space">8dp</dimen>
+    <!--Title Text-->
+
+    <dimen name="title_text">18sp</dimen>
+
+    <!--Text size service by category-->
+    <dimen name="textsize">17sp</dimen>
+    <dimen name="small_size">12sp</dimen>
+    <dimen name="layout_margin">27dp</dimen>
+    <dimen name="text_space">12.2dp</dimen>
+
+<!--marginTop-->
+    <dimen name="topspace">12dp</dimen>
+    <!--Image height-->
+    <dimen name="image_height">150dp</dimen>
+
+    <!--Conatct us page-->
+    <dimen name="textsize_font">22sp</dimen>
+    <dimen name="sent_size">17sp</dimen>
+    <dimen name="mail">20sp</dimen>
+
+    <!--User profile-->
+    <dimen name="tay_pic">300dp</dimen>
+
+    <!--date between-->
+    <dimen name="box">40dp</dimen>
+    <dimen name="date_space">10dp</dimen>
+    <dimen name="txtsz">17sp</dimen>
+    <dimen name="paddng">15dp</dimen>
+    <dimen name="to_date">5dp</dimen>
+    <dimen name="rightgap">2dp</dimen>
+    <dimen name="date_txt">15sp</dimen>
+    <dimen name="btn_date">15sp</dimen>
+    <dimen name="btn_pad">105dp</dimen>
+    <dimen name="btn_padding">50dp</dimen>
+    <dimen name="adv_search">30dp</dimen>
+
+    <!--Done button Date Between-->
+
+    <dimen name="done_width">60dp</dimen>
+    <dimen name="done_height">35dp</dimen>
+
+    <!--Date between button-->
+
+    <dimen name="date_left">100dp</dimen>
+
+    <!--CVC Code-->
+    <dimen name="cvc_right">20dp</dimen>
+
+    <!--Payment Options-->
+    <dimen name="bank_img">96dp</dimen>
+
+    <!--Navigation Drawer-->
+    <dimen name="nav_draw">50dp</dimen>
+    <dimen name="nav_space">8dp</dimen>
+    <dimen name="list_item_size">17sp</dimen>
+    <dimen name="small_textsize">15sp</dimen>
+    <dimen name="margin_list_item">8dp</dimen>
+    <dimen name="img_notify">36dp</dimen>
+    <dimen name="img_fav">25dp</dimen>
+    <dimen name="nav_textsize">11sp</dimen>
+    <dimen name="circular_img">96dp</dimen>
+    <dimen name="balnc_textsize">20sp</dimen>
+    <dimen name="marginTop_count">30dp</dimen>
+    <dimen name="profile_img">0dp</dimen>
+
+    <!--Checkbox-->
+    <dimen name="check_box">20dp</dimen>
+    <dimen name="serv_type">20dp</dimen>
+
+    <!--Add own service-->
+    <dimen name="service_add">12dp</dimen>
+
+    <!--Offline Page-->
+    <dimen name="height_off">600dp</dimen>
+    <dimen name="width_off">700dp</dimen>
+
+    <!--Refresh button-->
+    <dimen name="width_refresh">30dp</dimen>
+    <dimen name="height_refresh">30dp</dimen>
+
+    <!--customer sim sale-->
+    <dimen name="citizen_no_edittext">180dp</dimen>
+
+    <!--Buttons-->
+    <dimen name="btn_padding_space">10dp</dimen>
+
+    <dimen name="nepflight_img_height">300dp</dimen>
+    <dimen name="nepflight_1st_marginleft">20dp</dimen>
+    <dimen name="nepflight_2nd_marginleft">250dp</dimen>
+</resources>
+

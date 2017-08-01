@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Country:"
+                android:paddingTop="5dp"
+                android:textColor="#3E3E3E"
+                android:textSize="14dp"
+                />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/country_txt"
+                android:gravity="right"
+                android:paddingTop="5dp"
+                android:textSize="15dp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Product Type:"
+                android:textColor="#3E3E3E"
+                android:paddingTop="2dp"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/productType"
+                android:gravity="right"
+                android:paddingTop="2dp"
+              />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Account Description:"
+                android:textColor="#3E3E3E"
+                android:paddingTop="2dp"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/acountDesc"
+                android:gravity="right"
+                android:paddingTop="2dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="15dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remarks"
+        android:paddingTop="12dp"
+        android:textColor="#0B5F92"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sample Dropdown*"
+        android:textColor="#0B5F92"
+        android:textSize="16sp"
+        android:paddingTop="12dp"/>
+    <android.support.v7.widget.AppCompatSpinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.AppCompatSpinner>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email Address*"
+        android:textColor="#0B5F92"
+        android:textSize="16sp"
+        android:paddingTop="12dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your email address"
+        android:inputType="textEmailAddress"
+        android:paddingTop="15dp"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Website"
+        android:textColor="#0B5F92"
+        android:textSize="16sp"
+        android:paddingTop="12dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Website"
+        android:paddingTop="15dp"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Number*"
+        android:textColor="#0B5F92"
+        android:textSize="16sp"
+        android:paddingTop="12dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your contact number"
+        android:paddingTop="15dp"
+        android:textSize="15sp"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paid Date*"
+        android:textColor="#0B5F92"
+        android:textSize="16sp"
+        android:paddingTop="12dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2016-11-15"
+        android:textColor="#0B5F92"
+        android:background="@drawable/btn"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender*"
+        android:textColor="#0B5F92"
+        android:textSize="16sp"
+        android:paddingTop="12dp"/>
+    <RadioButton
+        android:id="@+id/radioMale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Male"
+        android:checked="true"
+        android:textColor="#3E3E3E"
+        android:buttonTint="#0B5F92"/>
+
+    <RadioButton
+        android:id="@+id/radioFemale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Female"
+        android:checked="true"
+        android:textColor="#3E3E3E"
+        android:buttonTint="#0B5F92"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delivery Details"
+        android:textColor="#0B5F92"
+        android:textSize="16sp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Delivery Details"
+        android:paddingTop="15dp"
+        android:textSize="15sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sample Option*"
+        android:textColor="#0B5F92"
+        android:textSize="16sp"/>
+
+    <CheckBox
+    android:id="@+id/chkAndroid"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Option 1"
+    android:checked="true"
+        android:backgroundTint="#0B5F92"
+        android:textColor="#3E3E3E"/>
+
+    <CheckBox
+        android:id="@+id/chk2Android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Option "
+        android:checked="true"
+        android:backgroundTint="#0B5F92"
+        android:textColor="#3E3E3E"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price*"
+        android:textColor="#0B5F92"
+        android:textSize="16sp"
+    />
+
+   <android.support.v7.widget.AppCompatSpinner
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+   </android.support.v7.widget.AppCompatSpinner>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:text="SUBMIT"
+        android:textStyle="bold"
+        />
+
+
+
+
+</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/image_height"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ic_launcher"
+                    android:id="@+id/imageView3"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:layout_width="360dp"
+                    android:layout_height="45dp"
+                    android:background="#55000000"
+                    android:text="Taylor Swift"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:gravity="bottom"
+                    android:layout_alignBottom="@+id/imageView3"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:paddingLeft="20dp"
+                    android:paddingBottom="10dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/camera"
+                    android:layout_alignBottom="@+id/imageView3"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="8dp"
+                    />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="1">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#0B5F92"
+                        android:text="INFO"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_centerVertical="true"
+
+                        android:id="@+id/textView9" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:textSize="20sp"
+                        android:text="Not verified"
+                        android:gravity="right"
+                        android:id="@+id/textView8"
+                        android:textColor="#D45956"
+                        android:layout_alignBaseline="@+id/textView9"
+                        android:layout_alignBottom="@+id/textView9"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginRight="12dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="Disable as default"
+                        android:textColor="#D45956"
+                        android:gravity="right"
+                        android:layout_below="@+id/textView8"
+                        android:layout_alignRight="@+id/textView8"
+                        android:layout_alignEnd="@+id/textView8" />
+
+                </RelativeLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#CECECE"
+                    android:layout_marginLeft="10dp"
+                    />
+                <View
+                    android:layout_width="80dp"
+                    android:layout_height="2dp"
+                    android:background="#FF8300"
+                    android:layout_marginLeft="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/info_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Company Name"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="25dp"
+                        android:textSize="18sp"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="HARATI"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="25dp"
+                        android:textSize="18sp"
+                        />
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/info_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Address 1"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Thapathali, Maitighar"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"/>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Address 2"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Banewsor, Kathmandu"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"
+                        />
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="City"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"
+                        android:textColor="#3E3E3E"
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Kathmandu"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"/>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/dob"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="State"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=""
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"/>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/timezone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Zip / Portal Code"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="+977"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/country"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Country"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Nepal"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/phonetxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Phone"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="9841563187"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/servtxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Customer Service No."
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="+977 980 900 5000"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/fax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Fax"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="+977-1-4267810"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Email"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=" info@harati.com.np"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/url"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="URL"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=" www.harati.com.np"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/remark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Remark"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=""
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18sp"/>
+
+
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/floatbtn"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="25dp"/>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

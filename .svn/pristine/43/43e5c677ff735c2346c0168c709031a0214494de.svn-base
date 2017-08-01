@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:id="@+id/coordinatorLayout"
+    tools:context="Activity.AfterRegistration">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/activity_after_registration"
+        android:background="#ffffff">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#ffffff">
+
+                <TextView
+                    android:id="@+id/firstname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="First Name"
+                    style="@style/Customtextview"
+                    android:layout_marginTop="15dp"
+                    />
+
+                <EditText
+                    android:id="@+id/firstNameEditTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="Enter your first name"
+                    style="@style/EditTextStyle"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Last Name"
+                    style="@style/Customtextview"
+                    android:paddingTop="@dimen/padding_top"/>
+                <EditText
+                    android:id="@+id/lastNameEditTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="Enter your last name"
+                    style="@style/EditTextStyle"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile Number"
+                    style="@style/Customtextview"
+                    android:paddingTop="@dimen/padding_top"
+                   />
+                <EditText
+                    android:id="@+id/mobileNoEditTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:hint="Enter your mobile number"
+                    style="@style/EditTextStyle"
+                    android:paddingTop="@dimen/space_top"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Referral ID"
+                    style="@style/Customtextview"
+                    android:paddingTop="@dimen/padding_top"
+                   />
+                <EditText
+                    android:id="@+id/partnerCodeEditTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
+                    android:hint="Enter referral id here (Optional)"
+                    style="@style/EditTextStyle"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#EDEDED">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Please enter reference or referral id if you are being referred by anyone. If you enter the id, you will be linked to referred person."
+                        style="@style/CustomHintColor"
+                        android:padding="15dp"/>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time Zone"
+                    style="@style/Customtextview"
+                    android:paddingTop="@dimen/padding_top"/>
+
+                <Spinner
+                    android:id="@+id/timezoneSpinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:nextFocusForward="@+id/tzone"
+                    android:gravity="right"
+                    android:entries="@array/time_zone"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                    android:layout_marginLeft="7dp"
+                    android:textSize="@dimen/font_size"
+                    android:textColor="#DEDADA"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Country"
+                    style="@style/Customtextview"
+                    android:paddingTop="@dimen/padding_top"
+                   />
+
+                <Spinner
+                    android:id="@+id/countrySpinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:nextFocusForward="@+id/spin"
+                    android:gravity="right"
+                    android:entries="@array/select_country"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                    android:layout_marginLeft="7dp"
+                    android:textSize="@dimen/font_size"
+                    android:textColor="#DEDADA"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/administrativeDistrictsLayout"></LinearLayout>
+
+                <Button
+                    android:id="@+id/btnContinueCountrySelection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="REGISTER"
+                    android:layout_alignParentLeft="true"
+                    style="@style/CustomButton"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginTop="15dp"/>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

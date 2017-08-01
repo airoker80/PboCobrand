@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:id="@+id/coordinatorLayout">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:fab="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/topup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:divider="@color/divider"
+        android:dividerHeight="1px"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/data_not_available"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/no_data"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/data"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_vertical"
+            />
+
+
+        <TextView
+            android:id="@+id/txt_no_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NO DATA AVAILABLE"
+            android:textSize="@dimen/title_text"
+            android:textColor="#3E3E3E"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/no_data"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="You have no data here."
+            android:textSize="@dimen/size"
+            android:textColor="#8F8D8E"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/txt_no_data"
+            android:layout_marginTop="5dp"/>
+    </RelativeLayout>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/addMyServicesFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_add_white"
+            fab:fab_colorNormal="#2BCAAA"
+            fab:fab_colorPressed="#2BCAAA"
+            fab:fab_colorRipple="#99d4d4d4"
+            app:fab_progress_color="#FF009688"
+            app:fab_progress_backgroundColor="#4D000000"
+            app:fab_showShadow="true"
+            app:fab_shadowColor="#66000000"
+            />
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

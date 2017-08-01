@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/amt_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Enter amount"
+            android:layout_marginLeft="@dimen/space_left"
+            android:layout_marginRight="@dimen/space_right"
+            android:textColorHint="#DEDADA"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:paddingTop="@dimen/space_top"
+            android:textSize="@dimen/font_size"
+            android:textColor="#535353"
+
+          />
+
+        <TextView
+            android:id="@+id/error_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:visibility="gone"
+            android:textColor="#CECECE"
+            />
+        <Button
+            android:id="@+id/viewPayDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VIEW DETAILS"
+            android:paddingLeft="@dimen/gap_left"
+            android:layout_alignParentLeft="true"
+            android:textSize="@dimen/size_font"
+            android:background="@color/colorTransparent"
+            android:textColor="#0B5F92"
+            android:textStyle="bold"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/addMoneyPayDetails"
+            android:orientation="vertical"></LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

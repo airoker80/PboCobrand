@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:id="@+id/coordinatorLayout"
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/purchaseReportList"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:divider="@color/divider"
+        android:dividerHeight="1px" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/data_not_available"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/no_data"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/data"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_vertical"
+            />
+
+
+        <TextView
+            android:id="@+id/txt_no_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NO DATA AVAILABLE"
+            android:textSize="@dimen/title_text"
+            android:textColor="#3E3E3E"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/no_data"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="You have no data here."
+            android:textSize="@dimen/size"
+            android:textColor="#8F8D8E"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/txt_no_data"
+            android:layout_marginTop="5dp"/>
+    </RelativeLayout>
+
+</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

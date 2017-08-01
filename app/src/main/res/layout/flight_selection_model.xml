@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent_white">
+<View
+    android:layout_width="match_parent"
+    android:layout_height="0.8dp"
+    android:background="@color/white"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/_4sdp"
+        android:paddingTop="@dimen/_4sdp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/airlineImg"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:padding="8dp"
+                android:src="@drawable/ic_airplane" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8sdp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/flightTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7:30-8:00"
+                    android:textColor="@color/white"
+                    android:alpha="0.7"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:id="@+id/airlineName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saurya Airline"
+                    android:textColor="@color/white"
+                    android:alpha="0.7"
+                    android:textSize="@dimen/_8sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/flightClass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Class : Y"
+                    android:textColor="@color/white"
+                    android:alpha="0.7"
+                    android:textSize="@dimen/_8sdp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:inputType="textCapWords|textCapSentences"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Type : "
+                        android:textColor="@color/white"
+                        android:alpha="0.7"
+                        android:textSize="@dimen/_8sdp" />
+                    <TextView
+                        android:inputType="textCapWords|textCapSentences"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:id="@+id/flightType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:alpha="0.7"
+                        android:textSize="@dimen/_8sdp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:typeface="sans"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NPR"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_6sdp" />
+
+                <TextView
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:id="@+id/flightPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5781.00"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <CheckBox
+                android:layout_marginTop="@dimen/_4sdp"
+                android:id="@+id/checkFlight"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:button="@drawable/flight_checkbox_selector"
+                android:gravity="end"
+                android:paddingRight="@dimen/_8sdp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="@color/white"/>
+
+</LinearLayout>

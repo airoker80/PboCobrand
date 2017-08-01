@@ -1,0 +1,26 @@
+{"Inbound":{"Availability":[{
+"FuelSurcharge":"3000",
+"InfantFare":"0"
+,"ChildFare":"1000"
+,"Airline":"S1"
+,"AdultFare":"1000"
+,"Departure":"KATHMANDU"
+,"AircraftType":"CRJ200"
+,"AgencyCommission":0,
+"sum":16000,
+"Child":"2",
+"Infant":"0"
+,"DepartureTime":"13:30"
+,"FlightDate":"20-JUN-2017",
+"Adult":"2",
+"ResFare":"0",
+"FreeBaggage":"10 KG"
+,"Arrival":"POKHARA",
+"FlightId":"97ee9880-82e2-4f3c-bc24-e4938d6c3a3e",
+"FlightNo":"S1901",
+"ArrivalTime":"13:30",
+"Currency":"NPR",
+"AirlineLogo":"http:\/\/unitsoln.com\/us\/apiImages\/S1.jpg","Refundable":"F","Tax":"0","duration":"0h 0m",
+"FlightClassCode":"R"
+,"ChildCommission":0
+}]}}

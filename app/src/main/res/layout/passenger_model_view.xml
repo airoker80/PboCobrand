@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#00000000"
+    android:padding="@dimen/_3sdp">
+
+    <TextView
+        android:id="@+id/passenger_sn"
+        android:textColor="@color/white"
+        android:padding="@dimen/_8sdp"
+        android:text="Passenger 1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12sdp"/>
+    <TextView
+        android:id="@+id/passenger_name"
+        android:layout_marginLeft="@dimen/_16sdp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/passenger_sn"
+        android:textColor="@color/white"
+        android:padding="@dimen/_8sdp"
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12sdp"/>
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:clickable="false"
+        android:id="@+id/flight_arrow_down"
+        android:layout_margin="@dimen/_8sdp"
+        android:layout_alignParentRight="true"
+        android:layout_width="@dimen/_12sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:src="@drawable/ic_flight_arrow_down_white"/>
+</RelativeLayout>

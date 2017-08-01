@@ -1,0 +1,148 @@
+package com.paybyonline.KantipurPay.Fragment;
+
+
+import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+
+import com.loopj.android.http.RequestParams;
+import com.paybyonline.KantipurPay.Activity.DashBoardActivity;
+import com.paybyonline.KantipurPay.Adapter.Model.PaymentProfile;
+import com.paybyonline.KantipurPay.Adapter.ProfilePaymentProfileAdapter;
+import com.paybyonline.KantipurPay.R;
+import com.paybyonline.KantipurPay.configuration.PayByOnlineConfig;
+import com.paybyonline.KantipurPay.serverdata.PboServerRequestHandler;
+import com.paybyonline.KantipurPay.serverdata.PboServerRequestListener;
+import com.paybyonline.KantipurPay.usersession.MyUserSessionManager;
+import com.paybyonline.KantipurPay.usersession.ShowMyAlertProgressDialog;
+import com.paybyonline.KantipurPay.usersession.UserDeviceDetails;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+import cz.msebera.android.httpclient.Header;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class ProfilePaymentProfileFragment extends Fragment {
+
+    RecyclerView recycleView;
+    UserDeviceDetails userDeviceDetails;
+    MyUserSessionManager myUserSessionManager;
+    ShowMyAlertProgressDialog showMyAlertProgressDialog;
+    RelativeLayout data_not_available;
+    CoordinatorLayout coordinatorLayout;
+    PboServerRequestHandler handler;
+    ArrayList<PaymentProfile> listOfProfiles = new ArrayList<PaymentProfile>();
+
+    public ProfilePaymentProfileFragment() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+
+        View view= inflater.inflate(R.layout.fragment_profile_payment_profile, container, false);
+        ((DashBoardActivity) getActivity())
+                .setTitle("Payment Profile");
+        recycleView=(RecyclerView)view.findViewById(R.id.recycleView);
+        coordinatorLayout=(CoordinatorLayout)view.findViewById(R.id.coordinatorLayout);
+        data_not_available=(RelativeLayout) view.findViewById(R.id.data_not_available);
+
+        userDeviceDetails = new UserDeviceDetails(getActivity());
+        myUserSessionManager = new MyUserSessionManager(getActivity());
+        showMyAlertProgressDialog = new ShowMyAlertProgressDialog(getActivity());
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        recycleView.setHasFixedSize(true);
+        recycleView.setLayoutManager(mLayoutManager);
+        getProfilePaymentProfile();
+
+
+        return view;
+    }
+    public void getProfilePaymentProfile( ){
+
+        RequestParams params = new RequestParams();
+        // Make Http call
+        params.put("parentTask", "rechargeApp");
+        params.put("childTask", "getProfilePaymentProfile");
+        params.put("userCode", myUserSessionManager.getSecurityCode());
+        params.put("authenticationCode", myUserSessionManager.getAuthenticationCode());
+
+        PboServerRequestHandler handler = PboServerRequestHandler.getInstance(coordinatorLayout,getActivity());
+        handler.makePostRequest(PayByOnlineConfig.SERVER_ACTION, "Please Wait", params,
+                new PboServerRequestListener() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+
+                        try {
+                            Log.i("Listresponse", "response");
+                            handleProfilePaymentProfileContentResponse(response);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+    }
+
+   // public void handleProfilePaymentProfileContentResponse(JSONObject response) throws JSONException {
+    public void handleProfilePaymentProfileContentResponse(JSONObject response) throws JSONException {
+
+        Log.i("Listresponse", "response");
+       // Log.i("Listresponse", response + "");
+        listOfProfiles = new ArrayList<PaymentProfile>();
+//        String jsonString= GenerateJsonData.getJsonData(getContext(), R.raw.profile_payment_profile);
+        try{
+            JSONObject jsonObj = response;
+            JSONArray jsonArray = jsonObj.getJSONArray("data");
+            if(jsonArray.length() > 0){
+
+                for (int i = 0; i < jsonArray.length(); i++) {
+
+                    JSONObject obs = jsonArray.getJSONObject(i);
+
+                    Log.i("obs", obs + "");
+
+                    // PaymentProfile(String usedBy,String profImg,String profName,String bankName,String paymentMethod)
+                    listOfProfiles.add(new PaymentProfile(obs.getString("preference"),
+                            obs.getString("logo"),obs.getString("profileName"),obs.getString("bankName")
+                            , obs.getString("paymentMethod")));
+
+                }
+                ProfilePaymentProfileAdapter   profileAdapter = new ProfilePaymentProfileAdapter(
+                        getActivity(), listOfProfiles);
+
+                recycleView.setAdapter(profileAdapter);
+
+            }else{
+                 data_not_available.setVisibility(View.VISIBLE);
+
+
+            }
+
+        }catch(JSONException ex){
+            ex.printStackTrace();
+        }
+
+
+
+    }
+
+
+}

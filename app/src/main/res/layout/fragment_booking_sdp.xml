@@ -1,0 +1,1447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dddddd">
+    <RelativeLayout
+        android:orientation="vertical"
+        android:id="@+id/whiteRL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <FrameLayout
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:id="@+id/flll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_165sdp"
+            android:background="@drawable/bg1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#b20c6093"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_margin="@dimen/_12sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/flight_btn_drawable">
+                    <TextView
+                        android:clickable="true"
+                        android:id="@+id/onewayTxt"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="One way"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textAlignment="center"
+                        android:padding="@dimen/_6sdp"/>
+
+                    <TextView
+                        android:textSize="@dimen/_12sdp"
+                        android:clickable="true"
+                        android:textStyle="bold"
+                        android:id="@+id/roundTripTxt"
+                        android:text="Round trip"
+                        android:textColor="#084367"
+                        android:textAlignment="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/flight_btn_white_drawable"
+                        android:padding="@dimen/_6sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/textView5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="FROM"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_11sdp" />
+                                <TextView
+                                    android:typeface="sans"
+                                    android:clickable="true"
+                                    android:id="@+id/place_frm"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="PKR"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_30sdp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/flight_place_name1"
+                                    android:layout_marginTop="-5dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Pokhara"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_9sdp" />
+
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/flight_mode_icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_26sdp"
+                                android:src="@drawable/ic_2way" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="TO"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_11sdp" />
+
+                                <TextView
+                                    android:clickable="true"
+                                    android:id="@+id/place_to"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="KTM"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_30sdp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/landing_place"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="-5dp"
+                                    android:gravity="center"
+                                    android:text="Kathmandu"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/_9sdp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            </FrameLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:id="@+id/middlepannel"
+            android:layout_below="@+id/flll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_above="@+id/searchFlight">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:id="@+id/from_ll"
+                        android:gravity="center"
+                        android:background="#084367"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/flight1_img1"
+                            android:paddingTop="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_39sdp"
+                            android:layout_height="@dimen/_39sdp"
+                            android:src="@drawable/ic_take_off_flight"/>
+                        <TextView
+                            android:layout_toRightOf="@+id/flight1_img1"
+                            android:id="@+id/flight1"
+                            android:background="#084367"
+                            android:textAlignment="center"
+                            android:paddingLeft="@dimen/_4sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pokhara, Nepal"
+                            android:textSize="@dimen/_11sdp"
+                            android:textColor="@color/white"
+                            android:layout_gravity="center"
+                            android:layout_alignBottom="@+id/flight1_img1"
+                            android:layout_alignParentTop="true" />
+                    </LinearLayout>
+
+&lt;!&ndash;
+                    <ImageView
+
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:id="@+id/rlv2"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_below="@+id/from_ll"
+                        android:background="@drawable/ic_flight_triangle"
+                        android:rotation="180" />
+&ndash;&gt;
+
+                    <ImageView
+                        android:layout_marginLeft="@dimen/_14sdp"
+                        android:layout_marginTop="-10dp"
+                        android:id="@+id/rlv2"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_below="@+id/from_ll"
+                        android:background="@drawable/ic_flight_arrow_down"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/goneRll"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:id="@+id/from_ll1"
+                        android:gravity="center"
+                        android:background="#084367"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/flight1_img2"
+                            android:paddingTop="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_39sdp"
+                            android:layout_height="@dimen/_39sdp"
+                            android:src="@drawable/ic_landing_flight"/>
+
+                        <TextView
+                            android:id="@+id/landing1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/flight1_img1"
+                            android:layout_alignParentTop="true"
+                            android:layout_gravity="center"
+                            android:layout_toRightOf="@+id/flight1_img1"
+                            android:background="#084367"
+                            android:paddingLeft="@dimen/_4sdp"
+                            android:text="Pokhara, Nepal"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_11sdp" />
+
+                    </LinearLayout>
+
+&lt;!&ndash;
+                    <ImageView
+
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:id="@+id/rlv2"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_below="@+id/from_ll"
+                        android:background="@drawable/ic_flight_triangle"
+                        android:rotation="180" />
+&ndash;&gt;
+                    <ImageView
+                        android:layout_marginLeft="@dimen/_22sdp"
+                        android:layout_marginTop="-10dp"
+                        android:id="@+id/rlv3"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_below="@+id/from_ll1"
+                        android:background="@drawable/ic_flight_arrow_down"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                </RelativeLayout>
+&lt;!&ndash;
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:id="@+id/goneRll"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:gravity="center"
+                        android:padding="@dimen/_14sdp"
+                        android:background="#084367"
+                        android:id="@+id/flight1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_takeoff_the_plane"/>
+                        <TextView
+                            android:id="@+id/flight1"
+                            android:background="#084367"
+                            android:textAlignment="center"
+                            android:paddingLeft="@dimen/_8sdp"
+                            android:layout_weight="0.29"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pokhara,Nepal"
+                            android:textSize="@dimen/_12sdp"
+                            android:textColor="@color/white"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:id="@+id/rlv2"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_below="@+id/flight1"
+                        android:background="@drawable/ic_flight_triangle"
+                        android:rotation="180" />
+                </RelativeLayout>
+&ndash;&gt;
+            </LinearLayout>
+            <LinearLayout
+            android:paddingBottom="@dimen/_20sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:gravity="center"
+                android:id="@+id/gravityCenterll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <ImageView
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:id="@+id/img1"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:src="@drawable/ic_calendar"/>
+                <TextView
+                    android:paddingTop="@dimen/_7sdp"
+                    android:layout_toRightOf="@+id/img1"
+                    android:id="@+id/departsTxt"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Departs on"/>
+                <TextView
+                    android:layout_marginTop="-8dp"
+                    android:id="@+id/flight_date"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:layout_below="@+id/img1"
+                    android:textColor="#4f4f4f"
+                    android:paddingTop="@dimen/_4sdp"
+                    android:textSize="@dimen/_21sdp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12 AUG"/>
+                <TextView
+                    android:id="@+id/flightWeekdays"
+                    android:layout_marginTop="@dimen/_22sdp"
+                    android:layout_toRightOf="@+id/flight_date"
+                    android:padding="@dimen/_6sdp"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wednesday\n2017"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:gravity="center"
+                android:id="@+id/goneRll1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <ImageView
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:id="@+id/img1"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:src="@drawable/ic_calendar"/>
+                <TextView
+                    android:paddingTop="@dimen/_7sdp"
+                    android:layout_toRightOf="@+id/img1"
+                    android:id="@+id/departsTxt"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Returns on"/>
+                <TextView
+                    android:layout_marginTop="-8dp"
+                    android:id="@+id/return_date"
+                    android:paddingLeft="@dimen/_12sdp"
+                    android:layout_below="@+id/img1"
+                    android:textColor="#4f4f4f"
+                    android:paddingTop="@dimen/_4sdp"
+                    android:textSize="@dimen/_21sdp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12 AUG"/>
+                <TextView
+                    android:id="@+id/return_weekday"
+                    android:layout_marginTop="@dimen/_22sdp"
+                    android:layout_toRightOf="@+id/return_date"
+                    android:padding="@dimen/_6sdp"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wednesday\n2017"/>
+            </RelativeLayout>
+        </LinearLayout>
+            <LinearLayout
+                android:id="@+id/whiteLL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00000000"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/adultRelativel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:id="@+id/ll1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#f4f4f4"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/_9sdp"
+                        android:paddingTop="@dimen/_9sdp">
+
+                        <TextView
+                            android:id="@+id/adultHeading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Adults"
+                            android:textAlignment="center"
+                            android:textColor="#474747"
+                            android:textSize="@dimen/_11sdp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="12 + years"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/_8sdp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/img1"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_below="@+id/ll1"
+                        android:layout_centerHorizontal="true"
+                        android:rotation="180"
+                        android:src="@drawable/ic_arrow_white" />
+
+                    <TextView
+                        android:id="@+id/adultNoTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:paddingBottom="@dimen/_12sdp"
+                        android:text="1"
+                        android:textColor="#474747"
+                        android:textSize="@dimen/_18sdp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="match_parent"
+                    android:background="#f4f4f4" />
+
+                <RelativeLayout
+                    android:id="@+id/childRelativel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:id="@+id/ll2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#f4f4f4"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/_9sdp"
+                        android:paddingTop="@dimen/_9sdp">
+
+                        <TextView
+                            android:id="@+id/childrenHeading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Children"
+                            android:textAlignment="center"
+                            android:textColor="#474747"
+                            android:textSize="@dimen/_11sdp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="2-11 years +"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/_8sdp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/img2"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_below="@+id/ll2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/nepflight_white_margin1"
+                        android:rotation="180"
+                        android:src="@drawable/ic_arrow_white" />
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/childrenNoTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img2"
+                        android:layout_centerHorizontal="true"
+                        android:paddingBottom="@dimen/_12sdp"
+                        android:text="1"
+                        android:textColor="#474747"
+                        android:textSize="@dimen/_18sdp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#f4f4f4" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:id="@+id/ll2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#f4f4f4"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/_9sdp"
+                        android:paddingTop="@dimen/_9sdp">
+
+                        <TextView
+                            android:id="@+id/nationalityHeading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Nationality"
+                            android:textAlignment="center"
+                            android:textColor="#474747"
+                            android:textSize="@dimen/_11sdp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:textSize="@dimen/_8sdp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/img2"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_below="@+id/ll2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/nepflight_white_margin1"
+                        android:rotation="180"
+                        android:src="@drawable/ic_arrow_white" />
+
+                    <TextView
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_centerVertical="true"
+                        android:textAlignment="textStart"
+                        android:id="@+id/nationlity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nepalese"
+                        android:textColor="#474747"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold"
+                        android:layout_below="@+id/img2"
+                        android:layout_centerHorizontal="true" />                </RelativeLayout>
+
+&lt;!&ndash;
+                <RelativeLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:id="@+id/ll3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#f4f4f4"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/_9sdp"
+                        android:paddingTop="@dimen/_9sdp">
+
+                        <TextView
+                            android:id="@+id/nationalityHeading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Nationality"
+                            android:textAlignment="center"
+                            android:textColor="#474747"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/_8sdp"
+                            android:visibility="invisible" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/img3"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_below="@+id/ll3"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/nepflight_white_margin1"
+                        android:rotation="180"
+                        android:src="@drawable/ic_arrow_white" />
+
+                    <TextView
+                        android:textAlignment="textStart"
+                        android:id="@+id/nationlity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nepalese"
+                        android:textColor="#474747"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold"
+                        android:layout_below="@+id/ll3"
+                        android:layout_centerHorizontal="true" />
+                </RelativeLayout>
+&ndash;&gt;
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout
+            android:clickable="true"
+            android:layout_weight="1"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary"
+            android:padding="@dimen/_9sdp"
+            android:id="@+id/searchFlight">
+            <TextView
+                android:alpha="0.7"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:layout_marginLeft="@dimen/_80sdp"
+                android:id="@+id/searchTxt"
+                android:textAlignment="center"
+                android:text="Search a Flight"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold"
+                android:layout_gravity="bottom"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+            <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/searchFlightArrow"
+                android:clickable="true"
+                android:paddingLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_toRightOf="@+id/searchTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dddddd">
+    <LinearLayout
+        android:weightSum="2"
+        android:orientation="vertical"
+        android:id="@+id/whiteRL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_weight=".2"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_weight="1.1"
+                android:id="@+id/flll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#b20c6093"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_margin="@dimen/_12sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/flight_btn_drawable">
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/onewayTxt"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="One way"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textAlignment="center"
+                            android:padding="@dimen/_6sdp"/>
+
+                        <TextView
+                            android:textSize="@dimen/_12sdp"
+                            android:clickable="true"
+                            android:textStyle="bold"
+                            android:id="@+id/roundTripTxt"
+                            android:text="Round trip"
+                            android:textColor="#084367"
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/flight_btn_white_drawable"
+                            android:padding="@dimen/_6sdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_22sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/textView5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="FROM"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/_11sdp" />
+                                    <TextView
+                                        android:typeface="sans"
+                                        android:clickable="true"
+                                        android:id="@+id/place_frm"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="PKR"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/_30sdp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/flight_place_name1"
+                                        android:layout_marginTop="-5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="Pokhara"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/_9sdp" />
+
+
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:id="@+id/flight_mode_icon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_26sdp"
+                                    android:src="@drawable/ic_2way" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="TO"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/_11sdp" />
+
+                                    <TextView
+                                        android:clickable="true"
+                                        android:id="@+id/place_to"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="KTM"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/_30sdp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/landing_place"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="-5dp"
+                                        android:gravity="center"
+                                        android:text="Kathmandu"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/_9sdp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </FrameLayout>
+            <LinearLayout
+                android:layout_weight=".9"
+                android:id="@+id/middlepannel"
+                android:layout_below="@+id/flll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_above="@+id/searchFlight">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:id="@+id/from_ll"
+                            android:gravity="center"
+                            android:background="#084367"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/flight1_img1"
+                                android:paddingTop="@dimen/_10sdp"
+                                android:paddingBottom="@dimen/_10sdp"
+                                android:layout_gravity="center"
+                                android:layout_width="@dimen/_39sdp"
+                                android:layout_height="@dimen/_39sdp"
+                                android:src="@drawable/ic_take_off_flight"/>
+                            <TextView
+                                android:layout_toRightOf="@+id/flight1_img1"
+                                android:id="@+id/flight1"
+                                android:background="#084367"
+                                android:textAlignment="center"
+                                android:paddingLeft="@dimen/_4sdp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pokhara, Nepal"
+                                android:textSize="@dimen/_11sdp"
+                                android:textColor="@color/white"
+                                android:layout_gravity="center"
+                                android:layout_alignBottom="@+id/flight1_img1"
+                                android:layout_alignParentTop="true" />
+                        </LinearLayout>
+
+                        <!--
+                                            <ImageView
+
+                                                android:layout_marginLeft="@dimen/_8sdp"
+                                                android:id="@+id/rlv2"
+                                                android:layout_width="@dimen/_35sdp"
+                                                android:layout_height="@dimen/_35sdp"
+                                                android:layout_below="@+id/from_ll"
+                                                android:background="@drawable/ic_flight_triangle"
+                                                android:rotation="180" />
+                        -->
+
+                        <LinearLayout
+                            android:id="@+id/centerLL"
+                            android:gravity="start"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/from_ll"
+                            android:layout_marginTop="-10dp">
+                            <ImageView
+                                android:layout_marginLeft="@dimen/_14sdp"
+                                android:id="@+id/rlv2"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_15sdp"
+                                android:background="@drawable/ic_flight_arrow_down"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true" />
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/goneRll"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:id="@+id/from_ll1"
+                            android:gravity="center"
+                            android:background="#084367"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/flight1_img2"
+                                android:paddingTop="@dimen/_10sdp"
+                                android:paddingBottom="@dimen/_10sdp"
+                                android:layout_gravity="center"
+                                android:layout_width="@dimen/_39sdp"
+                                android:layout_height="@dimen/_39sdp"
+                                android:src="@drawable/ic_landing_flight"/>
+
+                            <TextView
+                                android:id="@+id/landing1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignBottom="@+id/flight1_img1"
+                                android:layout_alignParentTop="true"
+                                android:layout_gravity="center"
+                                android:layout_toRightOf="@+id/flight1_img1"
+                                android:background="#084367"
+                                android:paddingLeft="@dimen/_4sdp"
+                                android:text="Pokhara, Nepal"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+
+                        <!--
+                                            <ImageView
+
+                                                android:layout_marginLeft="@dimen/_8sdp"
+                                                android:id="@+id/rlv2"
+                                                android:layout_width="@dimen/_35sdp"
+                                                android:layout_height="@dimen/_35sdp"
+                                                android:layout_below="@+id/from_ll"
+                                                android:background="@drawable/ic_flight_triangle"
+                                                android:rotation="180" />
+                        -->
+                        <ImageView
+                            android:layout_marginLeft="@dimen/_22sdp"
+                            android:layout_marginTop="-10dp"
+                            android:id="@+id/rlv3"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_below="@+id/from_ll1"
+                            android:background="@drawable/ic_flight_arrow_down"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true" />
+
+                    </RelativeLayout>
+                    <!--
+                                    <RelativeLayout
+                                        android:visibility="gone"
+                                        android:id="@+id/goneRll"
+                                        android:layout_weight="1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+                                        <LinearLayout
+                                            android:gravity="center"
+                                            android:padding="@dimen/_14sdp"
+                                            android:background="#084367"
+                                            android:id="@+id/flight1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:src="@drawable/ic_takeoff_the_plane"/>
+                                            <TextView
+                                                android:id="@+id/flight1"
+                                                android:background="#084367"
+                                                android:textAlignment="center"
+                                                android:paddingLeft="@dimen/_8sdp"
+                                                android:layout_weight="0.29"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Pokhara,Nepal"
+                                                android:textSize="@dimen/_12sdp"
+                                                android:textColor="@color/white"
+                                                android:layout_gravity="center"/>
+                                        </LinearLayout>
+                                        <ImageView
+                                            android:layout_marginLeft="@dimen/_8sdp"
+                                            android:id="@+id/rlv2"
+                                            android:layout_width="@dimen/_35sdp"
+                                            android:layout_height="@dimen/_35sdp"
+                                            android:layout_below="@+id/flight1"
+                                            android:background="@drawable/ic_flight_triangle"
+                                            android:rotation="180" />
+                                    </RelativeLayout>
+                    -->
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingBottom="@dimen/_20sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:gravity="center"
+                        android:id="@+id/gravityCenterll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <ImageView
+                            android:paddingLeft="@dimen/_12sdp"
+                            android:id="@+id/img1"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_24sdp"
+                            android:layout_height="@dimen/_24sdp"
+                            android:src="@drawable/ic_calendar"/>
+                        <TextView
+                            android:paddingTop="@dimen/_7sdp"
+                            android:layout_toRightOf="@+id/img1"
+                            android:id="@+id/departsTxt"
+                            android:textSize="@dimen/_8sdp"
+                            android:layout_marginLeft="@dimen/_8sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Departs on"/>
+                        <TextView
+                            android:layout_marginTop="-8dp"
+                            android:id="@+id/flight_date"
+                            android:paddingLeft="@dimen/_12sdp"
+                            android:layout_below="@+id/img1"
+                            android:textColor="#4f4f4f"
+                            android:paddingTop="@dimen/_4sdp"
+                            android:textSize="@dimen/_21sdp"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12 AUG"/>
+                        <TextView
+                            android:id="@+id/flightWeekdays"
+                            android:layout_marginTop="@dimen/_22sdp"
+                            android:layout_toRightOf="@+id/flight_date"
+                            android:padding="@dimen/_6sdp"
+                            android:textSize="@dimen/_8sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Wednesday\n2017"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:gravity="center"
+                        android:id="@+id/goneRll1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <ImageView
+                            android:paddingLeft="@dimen/_12sdp"
+                            android:id="@+id/img1"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_24sdp"
+                            android:layout_height="@dimen/_24sdp"
+                            android:src="@drawable/ic_calendar"/>
+                        <TextView
+                            android:paddingTop="@dimen/_7sdp"
+                            android:layout_toRightOf="@+id/img1"
+                            android:id="@+id/departsTxt"
+                            android:textSize="@dimen/_8sdp"
+                            android:layout_marginLeft="@dimen/_8sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Returns on"/>
+                        <TextView
+                            android:layout_marginTop="-8dp"
+                            android:id="@+id/return_date"
+                            android:paddingLeft="@dimen/_12sdp"
+                            android:layout_below="@+id/img1"
+                            android:textColor="#4f4f4f"
+                            android:paddingTop="@dimen/_4sdp"
+                            android:textSize="@dimen/_21sdp"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12 AUG"/>
+                        <TextView
+                            android:id="@+id/return_weekday"
+                            android:layout_marginTop="@dimen/_22sdp"
+                            android:layout_toRightOf="@+id/return_date"
+                            android:padding="@dimen/_6sdp"
+                            android:textSize="@dimen/_8sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Wednesday\n2017"/>
+                    </RelativeLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/whiteLL"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#00000000"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/adultRelativel"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:id="@+id/ll1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#f4f4f4"
+                            android:orientation="vertical"
+                            android:paddingBottom="@dimen/_9sdp"
+                            android:paddingTop="@dimen/_9sdp">
+
+                            <TextView
+                                android:id="@+id/adultHeading"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Adults"
+                                android:textAlignment="center"
+                                android:textColor="#474747"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="12 + years"
+                                android:textAlignment="center"
+                                android:textSize="@dimen/_8sdp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/img1"
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_below="@+id/ll1"
+                            android:layout_centerHorizontal="true"
+                            android:rotation="180"
+                            android:src="@drawable/ic_arrow_white" />
+
+                        <TextView
+                            android:id="@+id/adultNoTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/img1"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:paddingBottom="@dimen/_12sdp"
+                            android:text="1"
+                            android:textColor="#474747"
+                            android:textSize="@dimen/_18sdp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="@dimen/_1sdp"
+                        android:layout_height="match_parent"
+                        android:background="#f4f4f4" />
+
+                    <RelativeLayout
+                        android:id="@+id/childRelativel"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:id="@+id/ll2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#f4f4f4"
+                            android:orientation="vertical"
+                            android:paddingBottom="@dimen/_9sdp"
+                            android:paddingTop="@dimen/_9sdp">
+
+                            <TextView
+                                android:id="@+id/childrenHeading"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Children"
+                                android:textAlignment="center"
+                                android:textColor="#474747"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="2-11 years +"
+                                android:textAlignment="center"
+                                android:textSize="@dimen/_8sdp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/img2"
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_below="@+id/ll2"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="@dimen/nepflight_white_margin1"
+                            android:rotation="180"
+                            android:src="@drawable/ic_arrow_white" />
+
+                        <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/childrenNoTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/img2"
+                            android:layout_centerHorizontal="true"
+                            android:paddingBottom="@dimen/_12sdp"
+                            android:text="1"
+                            android:textColor="#474747"
+                            android:textSize="@dimen/_18sdp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f4f4f4" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:id="@+id/ll2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#f4f4f4"
+                            android:orientation="vertical"
+                            android:paddingBottom="@dimen/_9sdp"
+                            android:paddingTop="@dimen/_9sdp">
+
+                            <TextView
+                                android:id="@+id/nationalityHeading"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Nationality"
+                                android:textAlignment="center"
+                                android:textColor="#474747"
+                                android:textSize="@dimen/_11sdp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textAlignment="center"
+                                android:textSize="@dimen/_8sdp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/img2"
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_below="@+id/ll2"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="@dimen/nepflight_white_margin1"
+                            android:rotation="180"
+                            android:src="@drawable/ic_arrow_white" />
+
+                        <TextView
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:layout_centerVertical="true"
+                            android:textAlignment="textStart"
+                            android:id="@+id/nationlity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nepalese"
+                            android:textColor="#474747"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            android:layout_below="@+id/img2"
+                            android:layout_centerHorizontal="true" />                </RelativeLayout>
+
+                    <!--
+                                    <RelativeLayout
+
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1">
+
+                                        <LinearLayout
+                                            android:id="@+id/ll3"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="#f4f4f4"
+                                            android:orientation="vertical"
+                                            android:paddingBottom="@dimen/_9sdp"
+                                            android:paddingTop="@dimen/_9sdp">
+
+                                            <TextView
+                                                android:id="@+id/nationalityHeading"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:text="Nationality"
+                                                android:textAlignment="center"
+                                                android:textColor="#474747"
+                                                android:textSize="@dimen/_12sdp"
+                                                android:textStyle="bold" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:textAlignment="center"
+                                                android:textSize="@dimen/_8sdp"
+                                                android:visibility="invisible" />
+
+                                        </LinearLayout>
+
+                                        <ImageView
+                                            android:id="@+id/img3"
+                                            android:layout_width="@dimen/_25sdp"
+                                            android:layout_height="@dimen/_25sdp"
+                                            android:layout_below="@+id/ll3"
+                                            android:layout_centerHorizontal="true"
+                                            android:layout_marginLeft="@dimen/nepflight_white_margin1"
+                                            android:rotation="180"
+                                            android:src="@drawable/ic_arrow_white" />
+
+                                        <TextView
+                                            android:textAlignment="textStart"
+                                            android:id="@+id/nationlity"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Nepalese"
+                                            android:textColor="#474747"
+                                            android:textSize="@dimen/_14sdp"
+                                            android:textStyle="bold"
+                                            android:layout_below="@+id/ll3"
+                                            android:layout_centerHorizontal="true" />
+                                    </RelativeLayout>
+                    -->
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_weight="1.8"
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/primary"
+            android:padding="@dimen/_9sdp"
+            android:id="@+id/searchFlight">
+            <TextView
+                android:alpha="0.7"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:layout_marginLeft="@dimen/_80sdp"
+                android:id="@+id/searchTxt"
+                android:textAlignment="center"
+                android:text="Search a Flight"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold"
+                android:layout_gravity="bottom"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+            <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/searchFlightArrow"
+                android:clickable="true"
+                android:paddingLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_toRightOf="@+id/searchTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>

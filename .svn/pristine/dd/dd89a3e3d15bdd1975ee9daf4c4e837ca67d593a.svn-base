@@ -1,0 +1,256 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <style name="PboAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="android:windowBackground">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary</item>
+        <item name="android:textColorPrimary">@color/accent</item>
+        <item name="colorAccent">@color/accent</item>
+
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Widget.MyApp.ActionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/primary</item>
+        <item name="theme">@style/ThemeOverlay.MyApp.ActionBar</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
+
+    <style name="ThemeOverlay.MyApp.ActionBar" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="actionMenuTextColor">@color/secondary_text</item>
+    </style>
+
+    <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
+                
+        <item name="colorControlNormal">@color/editTextColor</item>
+                
+        <item name="colorControlActivated">@color/accent</item>
+                
+        <item name="colorControlHighlight">@color/accent</item>
+                
+        <item name="android:editTextBackground">@color/editTextColor</item>
+                
+        <item name="android:textColor">@color/textColor</item>
+
+        <item name="android:textColorHint">#DEDADA</item>
+
+        <item name="android:paddingTop">@dimen/space_top</item>
+
+        <item name="android:textSize">@dimen/font_size</item>
+
+        <item name="android:layout_marginLeft">@dimen/space_left</item>
+
+        <item name="android:layout_marginRight">@dimen/space_right</item>
+
+        <item name="android:textCursorDrawable">@drawable/color_cursor</item>
+         
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/primary_dark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="Customtextview">
+        <item name="android:textColor">#0B5F92</item>
+
+        <item name="android:textSize">@dimen/text_size</item>
+
+        <item name="android:layout_marginLeft">@dimen/margin_left</item>
+
+    </style>
+
+    <style name="Mytextview">
+        <item name="android:textColor">#3E3E3E</item>
+
+        <item name="android:textSize">@dimen/textsize</item>
+
+        <item name="android:layout_marginLeft">@dimen/margin_left</item>
+
+    </style>
+
+
+    <style name="CustomButton">
+
+        <item name="android:textColor">#0B5F92</item>
+
+        <item name="android:textStyle">bold</item>
+
+        <item name="android:textSize">@dimen/size_font</item>
+
+        <item name="android:background">@drawable/effect</item>
+
+        <item name="android:clickable">true</item>
+
+        <item name="android:descendantFocusability">blocksDescendants</item>
+
+        <item name="android:foreground">@drawable/effect</item>
+
+        <item name="android:padding">@dimen/btn_padding_space</item>
+
+
+    </style>
+
+    <style name="CustomHintColor">
+        <item name="android:textColorHint">#DEDADA</item>
+
+
+    </style>
+
+
+    <style name="PboAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="PboAppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="gap_ownservice">
+
+    </style>
+
+    <style name="ThemeSpinner">
+        <!-- Color when pressed -->
+        <item name="colorAccent">#ffa000</item>
+        <!-- Default color for the dropdown arrow and line -->
+        <item name="colorControlNormal">#ffc107</item>
+    </style>
+
+    <style name="background">
+        <item name="android:background">@drawable/effect</item>
+    </style>
+
+
+    <style name="Customtxt">
+        <item name="android:textColor">#0B5F92</item>
+
+        <item name="android:textSize">@dimen/font_size</item>
+
+        <item name="android:layout_marginLeft">@dimen/margin_left</item>
+
+    </style>
+
+
+    <style name="nav_dash_body">
+
+
+        <item name="android:padding">10dp</item>
+
+        <item name="android:textColor">#3E3E3E</item>
+
+        <item name="android:textSize">@dimen/list_item_size</item>
+
+
+        <item name="android:layout_marginTop">@dimen/nav_space</item>
+
+
+        <item name="android:layout_marginBottom">@dimen/margin_list_item</item>
+
+
+    </style>
+
+    <style name="nav_dash_subhead">
+
+        <item name="android:clickable">true</item>
+
+        <!--<item name="android:padding">5dp</item>-->
+        <item name="android:paddingLeft">40dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+
+        <item name="android:textSize">@dimen/small_textsize</item>
+
+        <!--<item name="android:background">@drawable/effect</item>-->
+
+        <item name="android:layout_marginTop">@dimen/nav_space</item>
+
+        <!--<item name="android:layout_marginLeft">25dp</item>-->
+
+
+    </style>
+
+
+    <style name="nav_dash_footer">
+
+        <item name="android:textColor">#3E3E3E</item>
+
+        <item name="android:textSize">@dimen/list_item_size</item>
+
+        <item name="android:clickable">true</item>
+
+        <item name="android:background">@drawable/effect</item>
+
+        <item name="android:padding">10dp</item>
+
+    </style>
+
+    <style name="circle_float">
+
+        <item name="android:background">@drawable/float_circle</item>
+
+
+    </style>
+
+
+    <!--<style name="FloatingActionMenu">-->
+    <!--<item name="android:layout_marginTop">20dp</item>-->
+    <!--<item name="android:layout_alignParentBottom">true</item>-->
+    <!--<item name="android:layout_alignParentRight">true</item>-->
+    <!--<item name="android:layout_marginBottom">11dp</item>-->
+    <!--<item name="android:layout_marginLeft">11dp</item>-->
+    <!--<item name="android:layout_marginRight">11dp</item>-->
+    <!--<item name="android:src">@drawable/fab_btn</item>-->
+    <!--<item name="fab:menu_animationDelayPerItem">55</item>-->
+    <!--<item name="fab:menu_backgroundColor">@android:color/transparent</item>-->
+    <!--<item name="fab:menu_buttonSpacing">0dp</item>-->
+    <!--<item name="fab:menu_colorNormal">#2BCAAA</item>-->
+    <!--<item name="fab:menu_colorPressed">#2BCAAA</item>-->
+    <!--<item name="fab:menu_colorRipple">#99d4d4d4</item>-->
+    <!--<item name="  fab:menu_fab_label"></item>-->
+    <!--<item name="fab:menu_fab_size">normal</item>-->
+    <!--<item name="fab:menu_labels_colorNormal">#fff</item>-->
+    <!--<item name="fab:menu_labels_colorPressed">#0D000000</item>-->
+    <!--<item name="fab:menu_labels_colorRipple">#66efecec</item>-->
+    <!--<item name="fab:menu_labels_cornerRadius">3dp</item>-->
+    <!--<item name="fab:menu_labels_ellipsize">none</item>-->
+    <!--<item name="fab:menu_labels_hideAnimation">@anim/fab_slide_out_to_right</item>-->
+    <!--<item name="fab:menu_labels_margin">0dp</item>-->
+    <!--<item name="fab:menu_labels_maxLines">-1</item>-->
+    <!--<item name="fab:menu_labels_padding">8dp</item>-->
+    <!--<item name="fab:menu_labels_position">left</item>-->
+    <!--<item name="fab:menu_labels_showAnimation">@anim/fab_slide_out_to_left</item>-->
+    <!--<item name="fab:menu_labels_showShadow">true</item>-->
+    <!--<item name=" fab:menu_labels_singleLine">false</item>-->
+    <!--<item name="fab:menu_labels_textColor">#3E3E3E</item>-->
+    <!--<item name="fab:menu_labels_textSize">15sp</item>-->
+    <!--<item name="fab:menu_openDirection">up</item>-->
+    <!--<item name="fab:menu_shadowXOffset">1dp</item>-->
+    <!--<item name="fab:menu_shadowYOffset">4dp</item>-->
+    <!--<item name="fab:menu_showShadow">true</item>-->
+    <!--<item name="fab:menu_shadowColor">#66000000</item>-->
+    <!--<item name="fab:menu_shadowRadius">4dp</item>-->
+
+
+    <!--</style>-->
+
+</resources>

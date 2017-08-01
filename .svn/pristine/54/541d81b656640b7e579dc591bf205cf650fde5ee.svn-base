@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    android:orientation="horizontal" >
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view003"
+        android:layout_gravity="top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        card_view:cardUseCompatPadding="true"
+        card_view:contentPadding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/id_type"
+                        android:textColor="#0B5F92"
+                        android:textSize="@dimen/title_text"
+                        android:text="NTC: GSM Prepaid"
+                        android:paddingBottom="5dp"
+                        android:layout_marginLeft="7dp"
+                        />
+                    <TextView
+                        android:id="@+id/id_amt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rs 10"
+                        android:textSize="@dimen/title_text"
+                        android:textColor="#0B5F92"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginRight="7dp"/>
+                    <TextView
+                        android:id="@+id/id_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="9841563186"
+                        android:visibility="invisible"
+                        android:textSize="@dimen/title_text"
+                        android:textColor="#0B5F92"
+                        android:layout_below="@+id/id_amt"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginRight="7dp"/>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E7E7E7"
+                        android:layout_below="@+id/id_number"
+                        android:id="@+id/stline"
+                        android:layout_marginTop="3dp"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Transaction Date:"
+                    android:paddingTop="5dp"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"/>
+                <TextView
+                    android:id="@+id/id_tranDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="2016-07-05 07:45:45"
+                    android:gravity="right"
+                    android:paddingTop="5dp"
+                    android:textSize="@dimen/textsize"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Transaction No.:"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"/>
+                <TextView
+                    android:id="@+id/id_tranNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="RP070744682969"
+                    android:gravity="right"
+                    android:textSize="@dimen/textsize"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Purchased Amount:"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"/>
+                <TextView
+                    android:id="@+id/id_pur_amt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Rs.10.00"
+                    android:gravity="right"
+                    android:textSize="@dimen/textsize"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Merchant Service (MS) Discount:"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"/>
+
+
+                <TextView
+                    android:id="@+id/msDis"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Rs.0.20"
+                    android:gravity="right"
+                    android:textSize="@dimen/textsize"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Net Cost Amount:"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"/>
+
+
+                <TextView
+                    android:id="@+id/id_netCostAmt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Rs.9.80"
+                    android:gravity="right"
+                    android:textSize="@dimen/textsize"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Deal/Promo:"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"/>
+
+
+                <TextView
+                    android:id="@+id/id_dealPromo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Rs.9.80"
+                    android:gravity="right"
+                    android:textSize="@dimen/textsize"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Reward:"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"/>
+
+
+                <TextView
+                    android:id="@+id/id_reward"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Rs.9.80"
+                    android:gravity="right"
+                    android:textSize="@dimen/textsize"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Remark:"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"/>
+
+
+                <TextView
+                    android:id="@+id/id_remark"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Rs.9.80"
+                    android:gravity="right"
+                    android:textSize="@dimen/textsize"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+
+
+
+
+
+
+</LinearLayout>

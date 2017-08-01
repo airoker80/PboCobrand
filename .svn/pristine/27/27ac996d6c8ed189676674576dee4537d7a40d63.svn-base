@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Transaction Date "
+            android:checked="false"
+            android:buttonTint="#0B5F92"
+            android:textSize="17sp"
+            android:textColor="#3E3E3E"
+            android:paddingLeft="10dip"
+            android:layout_marginBottom="10dp"/>
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Transaction Number"
+            android:buttonTint="#0B5F92"
+            android:checked="true"
+            android:textSize="17sp"
+            android:textColor="#3E3E3E"
+            android:paddingLeft="10dip"
+            android:layout_marginBottom="10dp"/>
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Purchased Amount"
+            android:buttonTint="#0B5F92"
+            android:textSize="17sp"
+            android:textColor="#3E3E3E"
+            android:paddingLeft="10dip"
+            android:layout_marginBottom="10dp"/>
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Merchant Service (MS) Discount"
+            android:buttonTint="#0B5F92"
+            android:textSize="17sp"
+            android:textColor="#3E3E3E"
+            android:paddingLeft="10dip"
+            android:layout_marginBottom="10dp"/>
+
+        <RadioButton
+            android:id="@+id/radioButton5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Net Cost Amount"
+            android:buttonTint="#0B5F92"
+            android:textSize="17sp"
+            android:textColor="#3E3E3E"
+            android:paddingLeft="10dip"
+            android:layout_marginBottom="10dp"/>
+
+        <RadioButton
+            android:id="@+id/radioButton6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Remarks"
+            android:buttonTint="#0B5F92"
+            android:textSize="17sp"
+            android:textColor="#3E3E3E"
+            android:paddingLeft="10dip"
+            android:layout_marginBottom="10dp"/>
+
+    </RadioGroup>
+
+
+</LinearLayout>

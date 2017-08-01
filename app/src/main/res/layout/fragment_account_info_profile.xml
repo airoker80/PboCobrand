@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tay_pic"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/tay"
+                    android:id="@+id/profile_img"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:layout_width="360dp"
+                    android:layout_height="45dp"
+                    android:background="#55000000"
+                    android:text="Taylor Swift"
+                    android:textSize="20sp"
+                    android:textColor="#ffffff"
+                    android:gravity="bottom"
+                    android:layout_alignBottom="@+id/imageView3"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:paddingLeft="20dp"
+                    android:paddingBottom="10dp"
+                    android:textStyle="bold"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/camera"
+                    android:layout_alignBottom="@+id/imageView3"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="8dp"
+                    />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="1">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#0B5F92"
+                        android:text="ACCOUNT INFO"
+                        android:textSize="@dimen/textsize_font"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_centerVertical="true"
+
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#0B5F92"
+                        android:textSize="@dimen/textsize_font"
+                        android:text="EDIT"
+                        android:gravity="right"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginRight="10dp"
+                        android:id="@+id/textView8" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/pencil"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/textView8"
+                        android:layout_toStartOf="@+id/textView8"
+                        android:layout_marginRight="5dp"/>
+
+                </RelativeLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#CECECE"
+                    android:layout_marginLeft="10dp"
+                    />
+                <View
+                    android:layout_width="80dp"
+                    android:layout_height="2dp"
+                    android:background="#FF8300"
+                    android:layout_marginLeft="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/info_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Account ID"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="25dp"
+                        android:textSize="@dimen/sent_size"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="0902511140142"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="25dp"
+                        android:textSize="@dimen/sent_size"
+                        />
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/info_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Account Name"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sent_size"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="My SR Account"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sent_size"/>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Account Role"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sent_size"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="SUPER RESSELLER"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sent_size"
+                        />
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:id="@+id/gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Category"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sent_size"
+                        android:textColor="#3E3E3E"
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Default"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sent_size"/>
+                    <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:text="Show details"-->
+                    <!--android:textColor="#0B5F92"-->
+                    <!--android:gravity="right"/>-->
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/dob"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Tier"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sent_size"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="7"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sent_size"/>
+
+
+                    <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:text="Show details"-->
+                    <!--android:textColor="#0B5F92"-->
+                    <!--android:gravity="right"/>-->
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/timezone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Registered Location"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sent_size"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Bagmati"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sent_size"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/country"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Registered Country"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sent_size"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Nepal"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sent_size"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/acctype"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Account Type"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sent_size"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Personal"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sent_size"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/timdescp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Account Description"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sent_size"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="My Super reseller acccount"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sent_size"/>
+
+
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/floatbtn"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="25dp"/>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

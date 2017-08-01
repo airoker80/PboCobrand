@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+
+        <Spinner
+            android:id="@+id/transactionSortSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/sort_order"
+            android:padding="10dp"
+            />
+
+        <Spinner
+            android:id="@+id/transactionSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/transaction_search_array"
+            android:layout_marginLeft="@dimen/adv_search"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dateSearchForm"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:gravity="center_horizontal"
+      >
+
+        <Button
+            android:id="@+id/dateFrom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:text="From"
+            android:background="@drawable/btn_shape"
+            android:textSize="@dimen/date_txt"
+            android:padding="@dimen/paddng"
+            android:foreground="@drawable/effect"
+            android:clickable="true"
+            android:descendantFocusability="blocksDescendants"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:text="TO"
+            android:layout_margin="@dimen/to_date"
+            android:textSize="@dimen/txtsz"
+            android:textColor="#3E3E3E"/>
+
+        <Button
+            android:id="@+id/dateTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:text="To"
+            android:background="@drawable/btn_shape"
+            android:textSize="@dimen/date_txt"
+            android:padding="@dimen/paddng"
+            android:foreground="@drawable/effect"
+            android:clickable="true"
+            android:descendantFocusability="blocksDescendants"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:padding="@dimen/_16sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Product Type:"
+                android:textColor="#3E3E3E"
+                android:paddingTop="2dp"/>
+            <TextView
+
+                android:text=" Flight"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/productType"
+                android:gravity="right"
+                android:paddingTop="2dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Account Description:"
+                android:textColor="#3E3E3E"
+                android:paddingTop="2dp"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/acountDesc"
+                android:gravity="right"
+                android:paddingTop="2dp"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Discount:"
+                android:textColor="#3E3E3E"
+                android:paddingTop="2dp"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/flightDiscount"
+                android:gravity="right"
+                android:paddingTop="2dp"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Ammount:"
+                android:textColor="#3E3E3E"
+                android:paddingTop="2dp"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/flightAmmount"
+                android:gravity="right"
+                android:paddingTop="2dp"
+                />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/descriptionTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#3E3E3E"
+            android:paddingTop="2dp"/>
+
+        <Button
+            android:id="@+id/payFlight"
+            android:textColor="@color/white"
+            android:text="PAY"
+            android:backgroundTint="@color/primary"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>

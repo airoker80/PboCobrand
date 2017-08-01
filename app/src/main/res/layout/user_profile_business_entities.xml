@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    android:orientation="horizontal" >
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:longClickable="true"
+        android:orientation="vertical"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="4dp"
+        android:layout_marginTop="5dp"
+        card_view:contentPadding="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/disbletxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Used By 1"
+                    android:textSize="@dimen/title_text"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="7dp"
+                    android:textColor="#0B5F92"
+                    />
+                <TextView
+                    android:id="@+id/removacc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Verified"
+                    android:textSize="@dimen/title_text"
+                    android:textColor="#D45956"
+                    android:layout_below="@+id/disbletxt"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="7dp"
+                    />
+
+                <View
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/image"
+                    android:id="@+id/stght"
+                    android:layout_marginTop="10dp">
+
+                </View>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_marginTop="10dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E7E7E7"
+                    android:id="@+id/views1"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@+id/removacc"
+                    android:layout_toRightOf="@+id/stght"
+                    android:layout_toEndOf="@+id/stght" />
+            </RelativeLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Company Name"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="HARATI"
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textsize"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address 1"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Maitighar"
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textsize"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address 2"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Baneswor"
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textsize"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="City"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kathmandu"
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textsize"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="State"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textsize"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Country"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nepal"
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textsize"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="9841563187"
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textsize"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fax"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="+977-1-4267810"
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textsize"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" info@harati.com.np"
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textsize"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="URL"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#3E3E3E"
+                    android:textSize="@dimen/textsize"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="www.harati.com.np"
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textSize="@dimen/textsize"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

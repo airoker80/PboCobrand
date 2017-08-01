@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<item android:mimmap="@mipmap/user_info" /> &lt;!&ndash; include your icon here &ndash;&gt;-->
+<!--<item android:drawable="@drawable/payment_card"-->
+    <!--/>-->
+    <item>
+        <shape android:shape="oval"
+
+            android:innerRadius="10dp"
+             > <!-- or rectangle -->
+
+            <stroke
+                android:width="2dp"
+                android:color="#2BCAAA" />
+        </shape>
+    </item>
+</layer-list>

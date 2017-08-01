@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#F4E8E3"
+            android:padding="20dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rechargeServiceName"
+                android:textColor="#535353"
+                style="@style/Customtextview"
+                android:layout_marginLeft="@dimen/margin_left"
+                android:layout_marginTop="15dp"
+                android:textSize="@dimen/text_size"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/prepmob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Customtextview"
+                    android:layout_marginLeft="@dimen/margin_left"
+                    android:paddingTop="@dimen/padding_top"
+                    android:textSize="@dimen/text_size"/>
+                <EditText
+                    android:layout_below="@+id/prepmob"
+                    android:id="@+id/mobnoTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:layout_marginLeft="@dimen/space_left"
+                    android:layout_marginRight="@dimen/space_right"
+                    style="@style/CustomHintColor"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:paddingTop="@dimen/space_top"
+                    android:textSize="@dimen/font_size"
+
+                    />
+                <ImageView
+                    android:id="@+id/contactIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/book"
+                    android:layout_gravity="right"
+                    android:layout_alignTop="@+id/mobnoTxt"
+                    android:layout_alignRight="@+id/mobnoTxt"
+                    android:layout_alignEnd="@+id/mobnoTxt" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount"
+                style="@style/Customtextview"
+                android:layout_marginLeft="@dimen/margin_left"
+                android:paddingTop="@dimen/padding_top"
+                android:textSize="@dimen/text_size"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="Enter amount"
+                android:layout_marginLeft="@dimen/space_left"
+                android:layout_marginRight="@dimen/space_right"
+                android:visibility="gone"
+                style="@style/CustomHintColor"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:paddingTop="@dimen/space_top"
+                android:textSize="@dimen/font_size"
+                android:id="@+id/amtEdit"/>
+            <Spinner
+                android:id="@+id/amtSpin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:hint="Enter Amount"/>
+
+
+
+            <RelativeLayout
+                android:id="@+id/promoCodeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/PromoCode"
+                    android:text="Promo Code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Customtextview"
+                    android:layout_marginLeft="@dimen/margin_left"
+                    android:paddingTop="@dimen/padding_top"
+                    android:textSize="@dimen/text_size"/>
+                <EditText
+                    android:layout_below="@+id/PromoCode"
+                    android:id="@+id/dealCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:layout_marginLeft="@dimen/space_left"
+                    android:layout_marginRight="@dimen/space_right"
+                    style="@style/CustomHintColor"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:paddingTop="@dimen/space_top"
+                    android:textSize="@dimen/font_size"
+
+                    />
+                <Button
+                    android:text="Check"
+                    android:id="@+id/checkDealBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnPaynow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PAY NOW"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="15dp"
+                style="@style/CustomButton"
+                android:padding="10dp"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

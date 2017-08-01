@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <RadioGroup
+        android:id="@+id/radioDefaultPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/dashboardRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dashboard"
+            android:checked="true"
+            android:buttonTint="#0B5F92"
+            android:layout_marginTop="15dp"
+            />
+
+        <RadioButton
+            android:id="@+id/buyRechargeRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buy/Recharge"
+            android:buttonTint="#0B5F92"
+            android:layout_marginTop="15dp"
+            />
+
+        <RadioButton
+            android:id="@+id/addMoneyRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Money"
+            android:buttonTint="#0B5F92"
+            android:layout_marginTop="15dp"
+            />
+
+        <RadioButton
+            android:id="@+id/sendMoneyRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send Money"
+            android:buttonTint="#0B5F92"
+            android:layout_marginTop="15dp"
+            />
+
+        <RadioButton
+            android:id="@+id/reportRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Report"
+            android:buttonTint="#0B5F92"
+            android:layout_marginTop="15dp"
+            />
+
+    </RadioGroup>
+
+</LinearLayout>

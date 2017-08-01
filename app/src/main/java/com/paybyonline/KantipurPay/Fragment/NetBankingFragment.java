@@ -1,0 +1,239 @@
+package com.paybyonline.KantipurPay.Fragment;
+
+import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.loopj.android.http.RequestParams;
+import com.paybyonline.KantipurPay.R;
+import com.paybyonline.KantipurPay.configuration.PayByOnlineConfig;
+import com.paybyonline.KantipurPay.serverdata.PboServerRequestHandler;
+import com.paybyonline.KantipurPay.serverdata.PboServerRequestListener;
+import com.paybyonline.KantipurPay.usersession.MyUserSessionManager;
+import com.paybyonline.KantipurPay.usersession.ShowMyAlertProgressDialog;
+import com.paybyonline.KantipurPay.usersession.UserDeviceDetails;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.DecimalFormat;
+import java.util.HashMap;
+
+import cz.msebera.android.httpclient.Header;
+
+/**
+ * Created by Anish on 9/8/2016.
+ */
+public class NetBankingFragment extends Fragment {
+
+    CoordinatorLayout coordinatorLayout;
+    private MyUserSessionManager myUserSessionManager;
+    DecimalFormat formatter = new DecimalFormat("0.00");
+    private UserDeviceDetails userDeviceDetails;
+    private ShowMyAlertProgressDialog showMyAlertProgressDialog;
+    private HashMap<String, String> userDetails;
+    Bundle bundle;
+
+    Button payNowBtn;
+
+    EditText payment_note;
+    EditText profile_name;
+    CheckBox chkSave;
+    CheckBox chkAgree;
+
+    TextView amtVal;
+    TextView profile_name_title;
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view= inflater.inflate(R.layout.fragment_net_banking, container, false);
+        coordinatorLayout=(CoordinatorLayout)view.findViewById(R.id.coordinatorLayout);
+        myUserSessionManager = new MyUserSessionManager(getActivity());
+        userDetails = myUserSessionManager.getUserDetails();
+        userDeviceDetails = new UserDeviceDetails(getActivity());
+        showMyAlertProgressDialog=new ShowMyAlertProgressDialog(getActivity());
+        bundle=getArguments();
+        Log.i("bundleData","online banking "+bundle);
+
+
+        payNowBtn = (Button)view.findViewById(R.id.payNowBtn);
+        payment_note=(EditText)view.findViewById(R.id.payment_note);
+        profile_name=(EditText)view.findViewById(R.id.profile_name);
+        chkSave=(CheckBox)view.findViewById(R.id.chkSave);
+        chkAgree=(CheckBox)view.findViewById(R.id.chkAgree);
+        amtVal=(TextView)view.findViewById(R.id.amtVal);
+        amtVal.setText(bundle.getString("amtPayingVal"));
+
+
+        profile_name_title=(TextView)view.findViewById(R.id.profile_name_title);
+        profile_name_title.setVisibility(View.GONE);
+        profile_name.setVisibility(View.GONE);
+
+        chkSave.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if(isChecked){
+                    profile_name_title.setVisibility(View.VISIBLE);
+                    profile_name.setVisibility(View.VISIBLE);
+                }else{
+                    profile_name_title.setVisibility(View.GONE);
+                    profile_name.setVisibility(View.GONE);
+
+                }
+            }
+        });
+
+        payNowBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(validateFormData()){
+                    showConfirmOrderFormNibl();
+                }
+            }
+        });
+
+//        Bundle[{purchasedAmt=100, amount=100, disAmt=5.0, amtType=Discount, totalAmt=95.0,
+// disPerVal=5.0, name=flatDiscount, disType=percent, amtPayingVal=100.00, walletDepositingVal=105.00}]
+
+        return view;
+    }
+
+    public void showConfirmOrderFormNibl(){
+
+        showMyAlertProgressDialog.showProgressDialog("Processing...",
+                "Please wait.");
+
+
+        RequestParams params = new RequestParams();
+        params.put("parentTask", "rechargeApp");
+        params.put("childTask", "showConfirmOrderFormOnlineBanking");
+        params.put("userCode", myUserSessionManager.getSecurityCode());
+        params.put("authenticationCode", myUserSessionManager.getAuthenticationCode());
+        params.put("payUsingIds", "72");
+        params.put("amtPayingVal", bundle.getString("amtPayingVal"));
+
+        // Make Http call
+        PboServerRequestHandler handler = PboServerRequestHandler.getInstance(coordinatorLayout,getActivity());
+        handler.makeRequest(PayByOnlineConfig.SERVER_ACTION, "Obtaining Confirm Order",
+                params, new PboServerRequestListener() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+
+                        try {
+                            handleShowConfirmOrderFormNibl(response);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        //Toast.makeText(getApplicationContext(), "JSONObject "+response+"",Toast.LENGTH_LONG).show();
+                    }
+                });
+
+    }
+    public void handleShowConfirmOrderFormNibl(JSONObject response) throws JSONException{
+
+        // userDeviceDetails.showToast(response);
+        showMyAlertProgressDialog.hideProgressDialog();
+        try {
+            if(response.getString("msgTitle").equals("Success")){
+
+                JSONObject jo = response;
+                Log.i("data:", "" + jo);
+                Bundle infoBundle=new Bundle();
+                infoBundle.putString("username", userDetails.get(MyUserSessionManager.KEY_USERNAME).toString());
+                infoBundle.putString("payUsingIds", jo.get("userPayTypesIds").toString());
+                infoBundle.putString("confirmPayUsings", jo.get("confirmPayUsings").toString());
+                infoBundle.putString("payTypeValue", jo.get("payTypeValue").toString());
+                infoBundle.putString("confirmPaymentNotes",payment_note.getText().toString());
+                infoBundle.putString("confirmPurchasedAmount", bundle.getString("purchasedAmt"));
+                infoBundle.putString("confirmDiscountAmount", bundle.getString("disAmt"));
+                infoBundle.putString("confirmDepositingAmount",bundle.getString("walletDepositingVal") );
+                infoBundle.putString("confirmPayingAmount",bundle.getString("amtPayingVal") );
+                infoBundle.putString("totalAmt",  bundle.getString("totalAmt"));
+                infoBundle.putString("payAmt", bundle.getString("amtPayingVal"));
+                infoBundle.putString("addDiscountWallet",bundle.getString("addDiscountWallet"));
+
+                if(profile_name.getText().toString().length() >0){
+                    infoBundle.putString("confirmPaymentProfileNames", profile_name.getText().toString());
+                }else{
+                    infoBundle.putString("confirmPaymentProfileNames", "");
+                }
+
+                String profileName=null;
+                if(profile_name.getText().toString().length()>0){
+
+                    profileName= profile_name.getText().toString();
+
+                }else{
+
+                    profileName="-";
+                }
+                Double confirmTotalAmount = Double.parseDouble(bundle.getString("amtPayingVal", ""))
+                        +Double.parseDouble(jo.get("payTypeDisCom").toString());
+                Double amtPayingVal = Double.parseDouble(bundle.getString("amtPayingVal"));
+                String confirmOrderText = "<br>Payment Amount : " +formatter.format(amtPayingVal)+
+                        "<br>Payment Type " +jo.get("payTypeHeading").toString()+
+                        "<br>Value : " +jo.get("payTypeValue").toString()+
+                        "<br>Amount :\n" +formatter.format( Double.parseDouble(jo.get("payTypeDisCom").toString()))+"<br>"+
+                        "<br>Net Payment Amount: " +formatter.format(confirmTotalAmount)+
+                        "<br>Payment Gateway : " +jo.get("paymentGateway").toString()+
+                        "<br>Payment Profile Name:"+"&nbsp;"+profileName+
+                        "<br>Payment Currency : " +jo.get("paymentCurrency").toString()+
+                        "<br>Payment Method : " +jo.get("payTypeMethod").toString();
+
+
+                Fragment fragment = new ConfirmOrderFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, fragment);
+                fragmentTransaction.addToBackStack(null);
+                infoBundle.putString("requestFrom", "OnlineBanking");
+                infoBundle.putString("confirmOrderText", confirmOrderText);
+                fragment.setArguments(infoBundle);
+                fragmentTransaction.commit();
+
+
+            }else{
+                userDeviceDetails.showToast(response.getString("msg"));
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public Boolean validateFormData(){
+        if(chkSave.isChecked() && !(profile_name.getText().toString().length()>0)){
+            userDeviceDetails.showToast("Please Enter Profile Name");
+            return  false;
+        }
+        if(!chkAgree.isChecked()){
+            userDeviceDetails.showToast("Please Agree Payment Terms");
+            return  false;
+        }
+        return true;
+    }
+
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,323 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context=".PBOCobrand.Fragment.SendMoneyConfirmFragment"
+      android:fitsSystemWindows="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPadding="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Purpose :"
+                            android:paddingTop="5dp"
+                            android:textColor="#3E3E3E"
+                            android:textSize="@dimen/textsize"/>
+                        <TextView
+                            android:id="@+id/purpose"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="right"
+                            android:paddingTop="5dp"
+                            android:text="Wallet Transfer"
+                            android:textSize="@dimen/textsize"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Send To :"
+                            android:paddingTop="5dp"
+                            android:textColor="#3E3E3E"
+                            android:textSize="@dimen/textsize"/>
+                        <TextView
+                            android:id="@+id/sendTo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="right"
+                            android:paddingTop="5dp"
+                            android:text="usersaroj1990@gmail.com"
+                            android:textSize="@dimen/textsize"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Sender / Receiver Currency "
+                            android:paddingTop="5dp"
+                            android:textColor="#3E3E3E"
+                            android:textSize="@dimen/textsize"/>
+                        <TextView
+                            android:id="@+id/sendReceiveCurrency"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="NPR./NPR."
+                            android:gravity="right"
+                            android:paddingTop="5dp"
+                            android:textSize="@dimen/textsize"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Wallet Sent Amount"
+                            android:paddingTop="5dp"
+                            android:textColor="#3E3E3E"
+                            android:textSize="@dimen/textsize"/>
+                        <TextView
+                            android:id="@+id/walletSentAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="20.00"
+                            android:gravity="right"
+                            android:paddingTop="5dp"
+                            android:textSize="@dimen/textsize"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#CECECE"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="E-Wallet Details"
+                        android:textColor="#0B5F92"
+                        android:textSize="@dimen/title_text"/>
+
+                    <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="1dp"-->
+                    <!--android:background="#CECECE"-->
+                    <!--android:layout_marginTop="5dp"/>-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Charge"
+                            android:paddingTop="5dp"
+                            android:textColor="#3E3E3E"
+                            android:textSize="@dimen/textsize"/>
+                        <TextView
+                            android:id="@+id/senderCharge"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="(Paid By Sender)"
+                            android:gravity="right"
+                            android:paddingTop="5dp"
+                            android:textSize="@dimen/textsize"/>
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/receiverCharge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" (Paid By Receiver)"
+                        android:layout_gravity="right"
+                        android:textSize="@dimen/textsize"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Sent Amount after Charge "
+                            android:paddingTop="5dp"
+                            android:textColor="#3E3E3E"
+                            android:textSize="@dimen/textsize"/>
+                        <TextView
+                            android:id="@+id/sentMoneyWalletAfterCharge"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="right"
+                            android:text="20.00"
+                            android:paddingTop="5dp"
+                            android:textSize="@dimen/textsize"/>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Received Amount"
+                            android:paddingTop="5dp"
+                            android:textColor="#3E3E3E"
+                            android:textSize="@dimen/textsize"/>
+                        <TextView
+                            android:id="@+id/walletReceiveAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="right"
+                            android:text="20.00"
+                            android:paddingTop="5dp"
+                            android:textSize="@dimen/textsize"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Received Amount after Charge "
+                            android:paddingTop="5dp"
+                            android:textColor="#3E3E3E"
+                            android:textSize="@dimen/textsize"/>
+                        <TextView
+                            android:id="@+id/receivedMoneyWalletAfterCharge"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="right"
+                            android:text="20.00"
+                            android:paddingTop="5dp"
+                            android:textSize="@dimen/textsize"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:id="@+id/exchangeRateLL"
+                        android:visibility="gone">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Receiver will Receive this amount after Exchange Rate Conversion"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/exchangedReceivedAmt"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/exchangeRateDetails"/>
+
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/payChargeMyselfCB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#535353"
+                            android:text="Pay all charge by Myself"
+                            android:checked="true"
+                            android:textSize="@dimen/textsize"
+                            android:layout_marginTop="5dp"
+                            android:padding="5dp"/>
+
+                        <CheckBox
+                            android:id="@+id/receiveNetSendAmountCB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Receiver receives net Sending Amount"
+                            android:checked="true"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#535353"
+                            android:textSize="@dimen/textsize"
+                            android:padding="5dp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Send Remarks "
+                            android:paddingTop="5dp"
+                            android:textColor="#3E3E3E"
+                            android:textSize="@dimen/textsize"
+                            />
+
+
+                        <EditText
+                            android:id="@+id/sentRemarks"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:paddingTop="5dp"
+                            android:background="@drawable/rectangle"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="top|left"
+                            android:padding="5dp"
+                            />
+                    </LinearLayout>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CONFIRM"
+                        style="@style/CustomButton"
+                        android:id="@+id/confirmSendMoneyBtn"/>
+
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </FrameLayout>
+</ScrollView>

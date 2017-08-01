@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--<Spinner
+            android:id="@+id/pieChartSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/chart_search_array"
+            android:layout_gravity="end" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/dateSearchForm"
+            android:visibility="gone"
+            android:gravity="right">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="From"
+                android:id="@+id/dateFrom"
+                android:layout_marginLeft="1dp"
+               />
+
+            &lt;!&ndash; <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/dateFromText"/> &ndash;&gt;
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TO"
+                android:textStyle="bold"
+                android:layout_marginLeft="1dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To"
+                android:id="@+id/dateTo"
+                android:layout_marginLeft="1dp"/>
+
+            &lt;!&ndash;  <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/dateToText"/> &ndash;&gt;
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search"
+                android:id="@+id/searchDataBetweenDate"
+                android:layout_marginLeft="1dp"/>
+
+        </LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/pieChartSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/chart_search_array"
+                android:layout_gravity="end"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
+                android:background="@drawable/rectangle"
+                android:id="@+id/dateSearchForm"
+                android:layout_marginRight="@dimen/box"
+                android:layout_marginLeft="@dimen/box">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        >
+                        <Button
+                            android:id="@+id/dateFrom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2016-10-03"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/btn_shape"
+                            android:textSize="@dimen/date_txt"
+                            android:layout_marginLeft="@dimen/date_left"
+                            android:padding="@dimen/paddng"
+                            android:foreground="@drawable/effect"
+                            android:clickable="true"
+                            android:descendantFocusability="blocksDescendants"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="To"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="@dimen/to_date"
+                            android:textSize="@dimen/txtsz"
+                            android:textColor="#3E3E3E"/>
+                        <Button
+                            android:id="@+id/dateTo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2016-10-03"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/btn_shape"
+                            android:padding="@dimen/paddng"
+                            android:textSize="@dimen/date_txt"
+                            android:foreground="@drawable/effect"
+                            android:clickable="true"
+                            android:descendantFocusability="blocksDescendants"/>
+                        <Button
+                            android:id="@+id/searchDataBetweenDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Done"
+                            android:background="@drawable/effect"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="@dimen/btn_date"
+                            android:textColor="#0B5F92"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/chart1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/seekBar1"/>
+    </LinearLayout>
+</FrameLayout>
+<!--
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:id="@+id/coordinatorLayout"
+    android:background="#ffffff">
+
+</android.support.design.widget.CoordinatorLayout>-->

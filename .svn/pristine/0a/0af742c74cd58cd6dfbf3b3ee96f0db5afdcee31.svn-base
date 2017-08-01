@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/servicesType"
+         android:layout_width="60dp"
+         android:layout_height="70dp"
+         android:text="Internet"
+         android:background="@drawable/rectangle"
+         android:layout_marginRight="3dp"
+         android:gravity="center"
+         android:textSize="12sp"
+         android:textColor="#3E3E3E"/>
+</LinearLayout>

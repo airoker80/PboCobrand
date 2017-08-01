@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view003"
+        android:layout_gravity="top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        card_view:cardUseCompatPadding="true"
+        card_view:contentPadding="-8dp"
+        card_view:contentPaddingLeft="-3dp"
+        card_view:contentPaddingRight="-3dp"
+        card_view:contentPaddingTop="-3dp"
+        card_view:contentPaddingBottom="-3dp"
+        android:foreground="@drawable/effect">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp">
+
+
+
+        <TextView
+                android:layout_width="60dp"
+                android:layout_height="70dp"
+                android:background="@drawable/round"
+                android:text="H"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:id="@+id/initial_letter"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="30dp"
+                android:gravity="center"
+                android:textColor="#fff"/>
+
+            <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/initial_name"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--android:layout_alignParentTop="true"-->
+                <!--android:layout_marginRight="16dp"-->
+                <!--android:src="@mipmap/ic_launcher"-->
+                <!--/>-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/service_name"
+                android:textSize="@dimen/fontsize"
+                android:text="HARATI"
+                android:textStyle="normal"
+                android:textColor="#3E3E3E"
+                android:layout_above="@+id/service_info"
+                android:layout_toRightOf="@+id/initial_letter"
+                android:layout_toEndOf="@+id/initial_letter"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/service_info"
+                android:text="HARATI Payment Form | Ncell Data +2 others"
+                android:textColor="#8F8D8E"
+                android:layout_alignBottom="@+id/initial_letter"
+                android:layout_alignLeft="@+id/service_name"
+                android:layout_alignStart="@+id/service_name"
+                android:layout_centerHorizontal="true"
+                android:textSize="@dimen/size"
+                android:layout_marginBottom="@dimen/sentnce_space"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

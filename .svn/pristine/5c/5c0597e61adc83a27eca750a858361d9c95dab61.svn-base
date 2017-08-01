@@ -1,0 +1,137 @@
+<resources>
+    <string name="app_name">PayByOnline</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_forget_password">Forget Password</string>
+    <string name="title_activity_use_recharge_code">UseRechargeCode</string>
+    <string name="title_activity_create_account">Create New Account</string>
+    <string name="page">Page</string>
+    <string name="tab">Tab</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_login">PayByOnline</string>
+    <string name="title_activity_initial_loading">PayByOnline</string>
+    <string name="title_activity_wallet">Wallet</string>
+    <string name="title_activity_send_money">Send Money</string>
+    <string name="title_activity_user_profile">User Profile</string>
+
+
+    <string-array name="array_name">
+        <item>Select Card</item>
+        <item>Credit Card</item>
+        <item>Debit Card</item>
+    </string-array>
+    <string-array name="time_zone">
+        <item>Asia/Kathmandu</item>
+    </string-array>
+    <string-array name="select_country">
+        <item>-Choose-</item>
+    </string-array>
+
+
+    <string-array name="chart_search_array">
+        <item>Last 7 days</item>
+        <item>Last 30 days</item>
+        <item>Date Between</item>
+    </string-array>
+    <string-array name="transaction_search_array">
+        <item>All</item>
+        <item>Last 7 days</item>
+        <item>Last 30 days</item>
+        <item>Date Between</item>
+    </string-array>
+
+
+    <string-array name="sort_order">
+        <item>Sort by</item>
+        <item>asc</item>
+        <item>desc</item>
+    </string-array>
+    <string-array name="districts_nepal">
+        <item>Taplejung</item>
+        <item>Panchthar</item>
+        <item>Ilam</item>
+        <item>Jhapa</item>
+        <item>Morang</item>
+        <item>Sunsari</item>
+        <item>Dhankutta</item>
+        <item>Sankhuwasabha</item>
+        <item>Bhojpur</item>
+        <item>Terhathum</item>
+        <item>Okhaldunga</item>
+        <item>Khotang</item>
+        <item>Solukhumbu</item>
+        <item>Udaypur</item>
+        <item>Saptari</item>
+        <item>Siraha</item>
+        <item>Dhanusa</item>
+        <item>Mahottari</item>
+        <item>Sarlahi</item>
+        <item>Sindhuli</item>
+        <item>Ramechhap</item>
+        <item>Dolkha</item>
+        <item>Sindhupalchauk</item>
+        <item>Kavreplanchauk</item>
+        <item>Lalitpur</item>
+        <item>Bhaktapur</item>
+        <item>Kathmandu</item>
+        <item>Nuwakot</item>
+        <item>Rasuwa</item>
+        <item>Dhading</item>
+        <item>Makwanpur</item>
+        <item>Rauthat</item>
+        <item>Bara</item>
+        <item>Parsa</item>
+        <item>Chitwan</item>
+        <item>Gorkha</item>
+        <item>Lamjung</item>
+        <item>Tanahun</item>
+        <item>Syangja</item>
+        <item>Kaski</item>
+        <item>Manag</item>
+        <item>Mustang</item>
+        <item>Parwat</item>
+        <item>Myagdi</item>
+        <item>Baglung</item>
+        <item>Gulmi</item>
+        <item>Palpa</item>
+        <item>Nawalparasi</item>
+        <item>Rupandehi</item>
+        <item>Arghakhanchi</item>
+        <item>Kapilvastu</item>
+        <item>Pyuthan</item>
+        <item>Rolpa</item>
+        <item>Rukum</item>
+        <item>Salyan</item>
+        <item>Dang</item>
+        <item>Bardiya</item>
+        <item>Surkhet</item>
+        <item>Dailekh</item>
+        <item>Banke</item>
+        <item>Jajarkot</item>
+        <item>Dolpa</item>
+        <item>Humla</item>
+        <item>Kalikot</item>
+        <item>Mugu</item>
+        <item>Jumla</item>
+        <item>Bajura</item>
+        <item>Bajhang</item>
+        <item>Achham</item>
+        <item>Doti</item>
+        <item>Kailali</item>
+        <item>Kanchanpur</item>
+        <item>Dadeldhura</item>
+        <item>Baitadi</item>
+        <item>Darchula</item>
+
+    </string-array>
+    <string name="title_activity_online_banking">NIBL Checkout</string>
+    <string name="title_activity_grow_network">GrowNetworkActivity</string>
+    <string name="title_activity_pbo_web_view">PboWebViewActivity</string>
+
+</resources>

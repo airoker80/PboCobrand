@@ -1,0 +1,841 @@
+package com.paybyonline.KantipurPay.Fragment;
+
+
+import android.app.DatePickerDialog;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.text.InputType;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.loopj.android.http.RequestParams;
+import com.paybyonline.KantipurPay.Adapter.Model.DynamicFormField;
+import com.paybyonline.KantipurPay.R;
+import com.paybyonline.KantipurPay.configuration.PayByOnlineConfig;
+import com.paybyonline.KantipurPay.serverdata.PboServerRequestHandler;
+import com.paybyonline.KantipurPay.serverdata.PboServerRequestListener;
+import com.paybyonline.KantipurPay.usersession.MyUserSessionManager;
+import com.paybyonline.KantipurPay.usersession.UserDeviceDetails;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import cz.msebera.android.httpclient.Header;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class BuyProductFormFragment extends Fragment implements View.OnClickListener{
+
+
+    UserDeviceDetails userDeviceDetails;
+    TextView product_Type;
+    TextView countryTxt;
+    TextView account_description;
+    String country;
+    String productType;
+    String accountDescription;
+    String formCountryId;
+    String merchantName;
+    Button btnSubmmit;
+    String commValue,accessToken,bookingId,purchasedValue,currencyCode,merchantTypeName;
+    CoordinatorLayout coordinatorLayout;
+    LinearLayout dynamicLayout;
+    MyUserSessionManager myUserSessionManager;
+    LinkedHashMap linkedHashMap = new LinkedHashMap();
+    LinkedHashMap fieldDetailsMap = new LinkedHashMap();
+    Button smtBtn;
+    List<DynamicFormField> dynamicFormFieldList;
+    JSONObject labelVal = new JSONObject();
+    JSONObject labelType = new JSONObject();
+    DynamicFormField dynamicFormField;
+    String scstId="";
+    View view;
+
+    TextView productCountry;
+
+    public BuyProductFormFragment() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        getActivity().setTitle("Buy Product");
+        view= inflater.inflate(R.layout.fragment_buy_product_form, container, false);
+        myUserSessionManager = new MyUserSessionManager(getActivity());
+        userDeviceDetails = new UserDeviceDetails(getActivity());
+        coordinatorLayout=(CoordinatorLayout)view.findViewById(R.id.coordinatorLayout);
+        product_Type=(TextView)view.findViewById(R.id.productType);
+        countryTxt=(TextView)view.findViewById(R.id.country_txt);
+        account_description=(TextView)view.findViewById(R.id.acountDesc);
+       // smtBtn=(Button)view.findViewById(R.id.smtBtn);
+        dynamicLayout = (LinearLayout)view.findViewById(R.id.dynamicLayout);
+        Bundle bundle=getArguments();
+        scstId= bundle.getString("scstId");
+        merchantTypeName= bundle.getString("merchantTypeName");
+        commValue= bundle.getString("commValue");
+        accessToken= bundle.getString("accessToken");
+        bookingId= bundle.getString("bookingId");
+        purchasedValue= bundle.getString("purchasedValue");
+        btnSubmmit=(Button)view.findViewById(R.id.smtBtn);
+        btnSubmmit.setVisibility(View.GONE);
+        btnSubmmit.setOnClickListener(this);
+        getDynamicFieldContent();
+
+        return view;
+    }
+    public void getDynamicFieldContent(  ){
+
+
+        RequestParams params = new RequestParams();
+        // Make Http call
+        if (merchantTypeName.equals("C")){
+            params.add("commValue",commValue);
+            params.add("accessToken",commValue);
+            params.add("bookingId",commValue);
+            params.add("purchasedValue",commValue);
+//            params.add("currencyCode","RS");
+        }
+        params.put("parentTask", "rechargeApp");
+        params.put("childTask", "selectItemApp");
+        params.put("userCountry", "Nepal");
+        params.put("userCode", myUserSessionManager.getSecurityCode());
+        params.put("authenticationCode", myUserSessionManager.getAuthenticationCode());
+        Log.i("scstId", scstId);
+        params.put("scstId", scstId);
+        PboServerRequestHandler handler = PboServerRequestHandler.getInstance(coordinatorLayout, getActivity());
+        handler.makePostRequest(PayByOnlineConfig.SERVER_ACTION, "Please Wait !!!", params,
+                new PboServerRequestListener() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+
+                        try {
+
+
+                            handleDynamicFieldContentResponse(response);
+
+                        } catch (JSONException e) {
+
+                            e.printStackTrace();
+                            Log.e("exp", "" + e);
+
+                        }
+
+                    }
+                });
+    }
+    public void handleDynamicFieldContentResponse(JSONObject result) throws JSONException {
+
+        Log.i("Listresponsefield", "" + result);
+
+        try{
+            JSONObject response = result.getJSONObject("result");
+            JSONObject fieldListObj = response.getJSONObject("fieldList");
+            JSONObject serviceCategoryServiceType = response.getJSONObject("serviceCategoryServiceType");
+            JSONObject merchantType = serviceCategoryServiceType.getJSONObject("merchantType");
+
+
+            merchantName = merchantType.getString("name");
+            Log.i("merchantType",merchantName+"");
+            country= response.getString("country").toString();
+            // merchantType= response.getString("merchantType").toString();
+            Log.i("merchant",""+merchantType);
+
+            productType=response.getString("productType").toString();
+            accountDescription=response.getString("accountDescription").toString();
+            formCountryId  =response.getString("formCountryId").toString();
+
+
+            product_Type.setText(productType);
+
+            if(country.equals("")){
+                countryTxt.setText("-");
+            }else{
+                countryTxt.setText(country);
+            }
+            account_description.setText(accountDescription);
+
+            Log.i("String :", country + productType + formCountryId);
+
+            Iterator iterator = fieldListObj.keys();
+            JSONObject object=new JSONObject();
+            String key="";
+
+            dynamicFormFieldList = new ArrayList<DynamicFormField>();
+            while(iterator.hasNext()){
+
+                key = (String)iterator.next();
+                object = fieldListObj.getJSONObject(key);
+                Log.i("object",key+"");
+                //  get id from  issue
+                //String _pubKey = issue.optString("id");
+                dynamicFormField=   new DynamicFormField(key, object.get("cid").toString(),
+                        object.get("field_type").toString(),
+                        object.get("label").toString(), object.get("required").toString()
+                        ,object.get("field_options").toString());
+
+                Log.i("field_Option",""+object.get("field_options").toString());
+
+                dynamicFormFieldList.add(dynamicFormField);
+                createDynamicFormElements(dynamicFormField);
+                btnSubmmit.setVisibility(View.VISIBLE);
+
+            }
+        } catch (JSONException e) {
+
+            e.printStackTrace();
+            Log.i("msgsss", e + "");
+
+        } catch (NullPointerException ex) {
+
+            ex.printStackTrace();
+            Log.i("msgsss", ex + "");
+
+        }
+
+    }
+    public void createDynamicFormElements(DynamicFormField dynamicFormField){
+
+        JSONObject field_options;
+        String field_type;
+
+        try {
+
+            field_type =  dynamicFormField.getFieldType();
+            Log.i("field_Option :", field_type);
+
+            fieldDetailsMap = new LinkedHashMap();
+            fieldDetailsMap.put("field_type",dynamicFormField.getFieldType());
+            fieldDetailsMap.put("required", dynamicFormField.getRequire());
+            fieldDetailsMap.put("label", dynamicFormField.getLabel());
+
+            TextView textView = new TextView(getContext());
+            textView.setText(dynamicFormField.getLabel() + (dynamicFormField.getRequire().equals("true") ? " *" : ""));
+            textView.setTextColor(Color.parseColor("#0B5F92"));
+            textView.setTextSize(16);
+            textView.setPadding(textView.getPaddingLeft(),12,textView.getPaddingRight(),textView.getPaddingBottom());
+            dynamicLayout.addView(textView);
+            int id = Integer.parseInt(dynamicFormField.getId());
+
+            field_options = new JSONObject(dynamicFormField.getfieldOption());
+
+            switch (field_type){
+
+                case "number":
+                case "website":
+                case "email":
+                case "text":
+                case "paragraph":
+
+                    EditText tv = new EditText(getContext());
+                    tv.setTextSize(15);
+                    tv.setPadding(tv.getPaddingLeft(),10,tv.getPaddingRight(),tv.getPaddingBottom());
+                    tv.setHint(dynamicFormField.getLabel());
+                    tv.setId(R.id.titleId+id);
+
+                    if((field_type.equals("text")) || (field_type.equals("paragraph"))){
+
+                        //   JSONObject field_optionsText  = fieldListObj.getJSONObject("field_options");
+
+                        if(field_options.has("minlength")){
+
+                            fieldDetailsMap.put("minlength",field_options.get("minlength").toString());
+                        }
+
+                        if(field_options.has("maxlength")) {
+
+                            fieldDetailsMap.put("maxlength", field_options.get("maxlength").toString());
+
+                        }
+
+                        if(field_options.has("min_max_length_units")) {
+                            fieldDetailsMap.put("min_max_length_units", field_options.get("min_max_length_units").toString());
+                        }
+
+//                        min_max_length_units --> characters or words
+
+                        if(field_type.equals("text")){
+                            if(field_options.has("description")) {
+                                fieldDetailsMap.put("description", field_options.get("description").toString());
+                            }
+                        }
+
+                        if(field_type.equals("paragraph")){
+                            tv.setMinLines(4);
+                            tv.setMaxLines(4);
+
+                        }
+
+                    }
+
+                    if(field_type.equals("number")){
+                        tv.setInputType(InputType.TYPE_CLASS_NUMBER);
+                    }
+
+                    if(field_type.equals("email")){
+                        tv.setInputType(InputType.TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS);
+                    }
+
+                    linkedHashMap.put(id + "", fieldDetailsMap);
+//                    dynamicLayout.addView(tv, editParams);
+                    dynamicLayout.addView(tv);
+                    break;
+
+                case "checkbox":
+
+                    LinearLayout checkboxLinearLayout = new LinearLayout(getContext());
+                    checkboxLinearLayout.setOrientation(LinearLayout.VERTICAL);
+                    checkboxLinearLayout.setId(R.id.titleId + id);
+                    //  JSONObject field_optionsCheckbox = fieldListObj.getJSONObject("field_options");
+                    JSONArray optionsCheckbox = field_options.getJSONArray("options");
+                    CheckBox cb;
+                    for (int i = 0; i < optionsCheckbox.length(); i++) {
+                        JSONObject jo = (JSONObject)optionsCheckbox.get(i);
+                        cb = new CheckBox(getContext());
+                        cb.setText(jo.getString("label"));
+                        cb.setTextColor(Color.parseColor("#3E3E3E"));
+//                        cb.setId(i);
+                        Log.i("is checked",jo.getString("checked")+"");
+                        if (jo.getString("checked").equals("true")){
+                            cb.setChecked(true);
+                        }
+
+                        checkboxLinearLayout.addView(cb);
+                    }
+
+                    linkedHashMap.put(id + "", fieldDetailsMap);
+                    dynamicLayout.addView(checkboxLinearLayout);
+
+
+                    break;
+
+                case "radio":
+                    //add radio buttons
+                    //  JSONObject field_options = fieldListObj.getJSONObject("field_options");
+                    JSONArray options = field_options.getJSONArray("options");
+
+                    final RadioButton[] rb = new RadioButton[5];
+                    RadioGroup rg = new RadioGroup(getContext()); //create the RadioGroup
+                    rg.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.VERTICAL
+                    rg.setId(R.id.titleId + id);
+
+                    for (int i = 0; i < options.length(); i++) {
+                        JSONObject jo = (JSONObject)options.get(i);
+                        RadioButton button = new RadioButton(getContext());
+                        button.setId(i);
+                        button.setTextColor(Color.parseColor("#3E3E3E"));
+                        button.setText(jo.getString("label"));
+                        button.setChecked(i == 0); // Only select first button
+                        rg.addView(button);
+                    }
+
+                    linkedHashMap.put(id + "", fieldDetailsMap);
+                    dynamicLayout.addView(rg);//you add the whole RadioGroup to the layout
+
+                    break;
+
+                case "date":
+
+
+                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.WRAP_CONTENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT);
+
+                    final Button button = new Button(getContext());
+                    button.setId(R.id.titleId+id);
+                    button.setTextColor(Color.parseColor("#3E3E3E"));
+                    button.setBackgroundResource(R.drawable.btn);
+                    button.setPadding(15,15,15,15);
+                    button.setTextSize(15);
+                    setCurrentDateOnView(button);
+
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            showDatePicker(button);
+                        }
+                    });
+                    linkedHashMap.put(id+"",fieldDetailsMap);
+//                    dynamicLayout.addView(button);//you add the whole RadioGroup to the layout
+
+                    dynamicLayout.addView(button, params);
+
+                    break;
+
+                case "dropdown":
+
+                    //JSONObject field_optionsDropdown = fieldListObj.getJSONObject("field_options");
+                    JSONArray optionsDropdown = field_options.getJSONArray("options");
+
+                    Spinner spinner = new Spinner(getContext());
+                    List<String> list = new ArrayList<String>();
+
+                    if(field_options.getString("include_blank_option").equals("true")){
+                        list.add("Choose");
+                    }
+
+                    for (int i = 0; i < optionsDropdown.length(); i++) {
+                        JSONObject jo = (JSONObject)optionsDropdown.get(i);
+                        list.add(jo.getString("label"));
+                    }
+
+                    ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getContext(),
+                            android.R.layout.simple_spinner_item, list);
+                    dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinner.setAdapter(dataAdapter);
+                    spinner.setId(R.id.titleId+id);
+                    linkedHashMap.put(id+"",fieldDetailsMap);
+                    dynamicLayout.addView(spinner);//you add the whole spinner to the layout
+                    // intent.putExtra("labelVal",spinner.getDr)
+                    break;
+
+                default:
+                    break;
+            }
+
+        } catch (JSONException e) {
+
+            e.printStackTrace();
+            Log.i("msgsss", e + "");
+
+        }catch (NullPointerException nullPointer){
+
+            nullPointer.printStackTrace();
+            Log.i("msgsss", nullPointer + "");
+        }
+
+    }
+    public Boolean validateFormData(){
+
+        try {
+            labelVal = new JSONObject();
+            labelType = new JSONObject();
+
+            Set set = linkedHashMap.entrySet();
+            Iterator i = set.iterator();
+
+            while(i.hasNext()) {
+
+                Map.Entry me = (Map.Entry)i.next();
+
+                LinkedHashMap data = (LinkedHashMap) me.getValue();
+                String field_type = data.get("field_type").toString();
+                int id = Integer.parseInt(me.getKey()+"");
+                Log.i("msgsss","key : "+me.getKey()+" value : "+me.getValue());
+                labelType.put(data.get("label")+"Type",data.get("field_type").toString().trim());
+
+                if(data.get("required").equals("true")){
+
+                    Log.i("msgss","data is required");
+
+                    switch (field_type){
+
+                        case "number":
+                        case "website":
+                        case "email":
+                        case "text":
+                        case "paragraph":
+
+                            EditText editText = (EditText)view.findViewById(R.id.titleId + id);
+
+                            if(!(editText.getText().toString().length()>0)){
+
+                                editText.setError(data.get("label")+" required");
+                                return false;
+
+                            }else{
+
+                                editText.setError(null);
+
+                            }
+
+                            if(field_type.equals("text")){
+
+                                if(data.get("minlength")!=null){
+
+                                    int minLength = Integer.parseInt(data.get("minlength").toString());
+                                    if((editText.getText().toString().length()<minLength)){
+
+                                        editText.setError(data.get("label")+" shoul have min length "+minLength);
+                                        return false;
+
+                                    }else{
+
+                                        editText.setError(null);
+                                    }
+                                }
+
+                            }
+
+
+                            if(field_type.equals("email")){
+                                //dom email validation here
+
+                                if (TextUtils.isEmpty(editText.getText().toString()) || !android.util.Patterns.EMAIL_ADDRESS.matcher(editText.getText().toString()).matches()) {
+                                    editText.setError(data.get("label")+" should be email address");
+                                    return false;
+                                } else {
+                                    editText.setError(null);
+                                }
+
+                            }
+
+
+                            if (scstId.equals("24") && data.get("label").equals("SIM Tv Customer Id")) {
+                                if(editText.getText().toString().startsWith("1")){
+                                    editText.setError(null);
+                                }else{
+                                    editText.setError(data.get("label")+" must start with 1.");
+                                    return false;
+                                }
+
+                                if(editText.getText().toString().length()==10){
+                                    editText.setError(null);
+                                }else{
+                                    editText.setError(data.get("label")+" must be of 10 characters.");
+                                    return false;
+                                }
+                            }
+
+                            if (scstId.equals("24") && data.get("label").equals("Amount")) {
+                                if(Integer.parseInt(editText.getText().toString())<350){
+                                    editText.setError(data.get("label")+" should be greater than 350.");
+                                    return false;
+                                }else{
+                                    editText.setError(null);
+                                }
+                            }
+
+                            labelVal.put(data.get("label")+"Val",editText.getText().toString());
+                            break;
+
+                        case "checkbox":
+
+                            LinearLayout linearLayout = (LinearLayout)view.findViewById(R.id.titleId + id);
+
+                            int count = linearLayout.getChildCount();
+                            Boolean isAnyCheckboxChecked = false;
+                            CheckBox c ;
+                            for(int j=0; j<count; j++) {
+
+                                c = (CheckBox)linearLayout.getChildAt(j);
+                                if(!isAnyCheckboxChecked){
+                                    if(c.isChecked()){
+                                        isAnyCheckboxChecked = true;
+                                        break; // no need to check further more
+                                    }
+                                }
+                            }
+
+                            if(!isAnyCheckboxChecked){
+                                Toast toast = Toast.makeText(getContext(), "Please Choose "+data.get("label"), Toast.LENGTH_LONG);
+                                toast.setGravity(Gravity.TOP, 25, 400);
+                                toast.show();
+                                return false;
+                            }
+
+                            String checkBoxVal="";
+                            for(int j=0; j<count; j++) {
+
+                                c = (CheckBox)linearLayout.getChildAt(j);
+
+                                if(c.isChecked()){
+
+                                    checkBoxVal = (checkBoxVal.length()>0) ? checkBoxVal+","+c.getText().toString()
+                                            : c.getText().toString();
+                                }
+
+                            }
+
+                            labelVal.put(data.get("label")+"Val",checkBoxVal);
+
+                            break;
+
+                        case "radio":
+
+
+                            RadioGroup rg = (RadioGroup)view.findViewById(R.id.titleId + id); //create the RadioGroup
+                            // rg.setOrientation(RadioGroup.HORIZONTAL);//or RadioGroup.VERTICAL
+
+
+                            RadioButton button;
+                            Boolean isAnyRadioChecked = false;
+
+                            for (int k = 0; k < rg.getChildCount(); k++) {
+                                button = (RadioButton) rg.getChildAt(k);
+
+                                if(!isAnyRadioChecked){
+                                    if(button.isChecked()){
+                                        isAnyRadioChecked = true;
+                                        labelVal.put(data.get("label")+"Val",button.getText().toString());
+                                        break;
+                                    }
+                                }
+                            }
+                            if(!isAnyRadioChecked){
+                                Toast toast = Toast.makeText(getContext(), "Please Choose "+data.get("label"), Toast.LENGTH_LONG);
+                                toast.setGravity(Gravity.TOP, 25, 400);
+                                toast.show();
+                                return false;
+                            }
+
+
+
+                            break;
+
+                        case "date":
+
+                            Button btnDate = (Button) view.findViewById(R.id.titleId + id);
+                            labelVal.put(data.get("label")+"Val",btnDate.getText().toString().replaceAll("-",","));
+
+                            break;
+
+                        case "dropdown":
+
+                            Spinner spinner = (Spinner)view.findViewById(R.id.titleId + id);
+                            if(spinner.getSelectedItem().equals("Choose")){
+//                            Toast.makeText(getApplicationContext(),"Please Select "+data.get("label"),Toast.LENGTH_SHORT).show();
+                                Toast toast = Toast.makeText(getContext(),"Please Select "+data.get("label"), Toast.LENGTH_LONG);
+                                toast.setGravity(Gravity.TOP, 25, 400);
+                                toast.show();
+                                return false;
+                            }
+
+
+                            if(spinner.getSelectedItem().equals("Choose")) {
+
+                                labelVal.put(data.get("label")+"Val","");
+
+                            }else{
+
+                                labelVal.put(data.get("label")+"Val", spinner.getSelectedItem().toString());
+
+                            }
+                            break;
+
+                        default:
+                            break;
+                    }
+
+
+                }else {
+
+                    switch (field_type){
+
+                        case "number":
+                        case "website":
+                        case "email":
+                        case "text":
+                        case "paragraph":
+
+                            EditText editText = (EditText)view.findViewById(R.id.titleId + id);
+                            labelVal.put(data.get("label")+"Val", editText.getText().toString());
+                            break;
+
+                        case "checkbox":
+
+
+                            LinearLayout linearLayout = (LinearLayout)view.findViewById(R.id.titleId + id);
+                            int count = linearLayout.getChildCount();
+
+                            Boolean isAnyCheckboxChecked = false;
+                            CheckBox c ;
+                            for(int j=0; j<count; j++) {
+
+                                c = (CheckBox)linearLayout.getChildAt(j);
+                                if(!isAnyCheckboxChecked){
+
+                                    if(c.isChecked()){
+
+                                        isAnyCheckboxChecked = true;
+                                        labelVal.put(data.get("label")+"Val",c.getText().toString());
+                                        break; // no need to check further more
+                                    }
+                                }else{
+                                    labelVal.put(data.get("label")+"Val","");
+
+                                }
+                            }
+
+                            if(!isAnyCheckboxChecked){
+//                            Toast.makeText(getApplicationContext(),"Please Choose "+data.get("label"),Toast.LENGTH_SHORT).show();
+                                Toast toast = Toast.makeText(getActivity(), "Please Choose "+data.get("label"), Toast.LENGTH_LONG);
+                                toast.setGravity(Gravity.TOP, 25, 400);
+                                toast.show();
+                                return false;
+                            }
+
+                            String checkBoxVal="";
+                            for(int j=0; j<count; j++) {
+
+                                c = (CheckBox)linearLayout.getChildAt(j);
+                                if(c.isChecked()){
+
+                                    checkBoxVal = (checkBoxVal.length()>0) ? checkBoxVal+","+c.getText().toString()
+                                            : c.getText().toString();
+                                }
+                            }
+
+                            labelVal.put(data.get("label")+"Val",checkBoxVal);
+                            break;
+
+                        case "radio":
+
+
+                            RadioGroup rg = (RadioGroup)view.findViewById(R.id.titleId + id);;
+                            for (int j = 0; j < rg.getChildCount();j++) {
+
+                                RadioButton r = (RadioButton)  rg.getChildAt(j);
+                                if(r.isChecked()){
+
+                                    labelVal.put(data.get("label")+"Val",r.getText().toString());
+
+                                }
+
+
+                            }
+
+                            break;
+
+                        case "date":
+
+                            Button btnDate =  (Button)view.findViewById(R.id.titleId + id);
+                            labelVal.put(data.get("label")+"Val",btnDate.getText().toString().replaceAll("-",","));
+
+                            break;
+
+                        case "dropdown":
+
+                            Spinner spinner = (Spinner)view. findViewById(R.id.titleId+id);
+                            if(spinner.getSelectedItem().equals("Choose")){
+
+                                labelVal.put(data.get("label")+"Val","");
+
+                            }else{
+
+                                labelVal.put(data.get("label")+"Val",spinner.getSelectedItem().toString());
+
+                            }
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                }
+            }
+
+
+        }catch (JSONException e){
+
+            Log.e("exe",e+"");
+
+        }catch (NullPointerException nullPointer)
+        {
+            Log.e("nullPointer", nullPointer + "");
+        }
+        return  true;
+
+    }
+    public void setCurrentDateOnView(Button fromToBtn) {
+
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+
+        // set current date into textview
+        fromToBtn.setText(new StringBuilder()
+                // Month is 0 based, just add 1
+                .append(year).append("-").append(month + 1).append("-")
+                .append(day));
+
+    }
+    private void showDatePicker(final Button fromToBtn) {
+
+        DatePickerFragment date = new DatePickerFragment();
+        /**
+         * Set Up Current Date Into dialog
+         */
+        Calendar calender = Calendar.getInstance();
+        Bundle args = new Bundle();
+        String[] selDate = fromToBtn.getText().toString().split("-");
+        args.putInt("year", Integer.parseInt(selDate[0]));
+        args.putInt("month", Integer.parseInt(selDate[1]) - 1);
+        args.putInt("day", Integer.parseInt(selDate[2]));
+        date.setArguments(args);
+        /**
+         * Set Call back to capture selected date
+         */
+//        date.setCallBack(ondate);
+        date.setCallBack(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker,int year, int monthOfYear,
+                                  int dayOfMonth) {
+                fromToBtn.setText(String.valueOf(year) + "-"
+                        + String.valueOf(monthOfYear + 1) + "-"
+                        + String.valueOf(dayOfMonth));
+            }
+        });
+        date.show(getActivity().getSupportFragmentManager(), "Date Picker");
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+
+            case R.id.smtBtn:
+                Boolean result = validateFormData();
+                if (result) {
+
+                    Bundle bundle=new Bundle();
+                    Fragment fragment = new BuyPageConfirmFragment();
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.content_frame, fragment);
+                    fragmentTransaction.addToBackStack(null);
+                    bundle.putString("valList", labelVal.toString());
+                    bundle.putString("typeList", labelType.toString());
+                    bundle.putString("scstId", scstId);
+                    bundle.putString("formCountryId", formCountryId);
+                    bundle.putString("merchantName", merchantName);
+                    fragment.setArguments(bundle);
+                    fragmentTransaction.commit();
+                    break;
+
+                }
+
+        }
+    }
+}

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:id="@+id/coordinatorLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        >
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true" >
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="5dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Coupon Code"
+                    style="@style/Customtextview"
+                    android:layout_marginTop="15dp"
+                    />
+
+
+                <EditText
+                    android:id="@+id/couponCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="Enter code"
+                    android:textColorHint="#DEDADA"
+                    style="@style/EditTextStyle"
+                    android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
+                    />
+                <TextView
+                    android:id="@+id/mobileNoHeading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile Number"
+                    style="@style/Customtextview"
+                    android:paddingTop="@dimen/padding_top"/>
+                <EditText
+                    android:id="@+id/mobileNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="Enter your mobile number"
+                    android:textColorHint="#DEDADA"
+                    style="@style/EditTextStyle"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Confirm Number"
+                    style="@style/Customtextview"
+                    android:paddingTop="@dimen/padding_top"
+                    android:id="@+id/reMobileNoHeading"
+                    />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="Confirm your mobile number"
+                    android:textColorHint="#DEDADA"
+                    style="@style/EditTextStyle"
+                    android:layout_below="@+id/id_exdate"
+                    android:id="@+id/reMobileNo"/>
+
+                <Button
+                    android:id="@+id/btnUseRechargeCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RECHARGE"
+                    style="@style/CustomButton"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="@dimen/btn_space"/>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
+

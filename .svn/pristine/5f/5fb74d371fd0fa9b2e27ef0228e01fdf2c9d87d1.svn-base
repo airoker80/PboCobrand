@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    android:orientation="horizontal" >
+
+
+
+            <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view003"
+            android:layout_gravity="top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:longClickable="true"
+            android:orientation="vertical"
+            card_view:cardUseCompatPadding="true"
+            card_view:contentPadding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Balance: Rs.30"
+                            android:textSize="@dimen/title_text"
+                            android:textColor="#0B5F92"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginRight="7dp"/>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#E7E7E7"
+                            android:layout_below="@+id/balance"
+                            android:id="@+id/stline"
+                            android:layout_marginTop="3dp"
+
+                            />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Transaction Date:"
+                        android:paddingTop="5dp"
+                        android:textColor="#3E3E3E"
+                        android:textSize="@dimen/textsize"/>
+                    <TextView
+                        android:id="@+id/transactionDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="2016-07-05 07:45:45"
+                        android:gravity="right"
+                        android:paddingTop="5dp"
+                        android:textSize="@dimen/textsize"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/id_tranNo_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Transaction No.:"
+                        android:textColor="#3E3E3E"
+                        android:textSize="@dimen/textsize"
+                        android:paddingTop="2dp"/>
+
+                    <TextView
+                        android:id="@+id/transactionNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="RP070744682969"
+                        android:gravity="right"
+                        android:textSize="@dimen/textsize"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/paymentLayout"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Payment:"
+                        android:textColor="#3E3E3E"
+                        android:textSize="@dimen/textsize"
+                        android:paddingTop="2dp"/>
+
+
+                    <TextView
+                        android:id="@+id/pay_amt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="right"
+                        android:textSize="@dimen/textsize"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:text="Description:"-->
+                        <!--android:textColor="#3E3E3E"-->
+                        <!--android:textSize="@dimen/textsize"-->
+                        <!--android:paddingTop="2dp"/>-->
+                    <!--<TextView-->
+                        <!--android:id="@+id/msDis"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:text="Rs.0.6"-->
+                        <!--android:gravity="right"-->
+                        <!--android:textSize="@dimen/textsize"/>-->
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/payDepositLayout">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Deposit:"
+                        android:textColor="#3E3E3E"
+                        android:textSize="@dimen/textsize"
+                        android:paddingTop="2dp"/>
+                    <TextView
+                        android:id="@+id/paymentDeposit"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="right"
+                        android:textSize="@dimen/textsize"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/msDis"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="(Wallet Deposit with depositing amount : 1000.0 | Payment method using Credit Card with Payement Type (PT) Service Charge 35.00)"
+                        android:textSize="@dimen/small_size"
+                        android:layout_marginTop="5dp"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+</LinearLayout>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:id="@+id/coordinatorLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        >
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="5dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:gravity="right">
+                    <TextView
+                        android:id="@+id/amt_val"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Amount[NPR]:"
+                        android:textColor="#0B5F92"
+                        android:textSize="@dimen/font_size"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="@dimen/margin_left"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/amtVal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#EE801F"
+                        android:textSize="@dimen/font_size"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/visa_card"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/master_card"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/jcb_card"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/american_express"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/diner_club"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/discover"/>
+
+
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Debit Card Number"
+                    style="@style/Customtextview"
+                    android:layout_marginTop="@dimen/padding_top"/>
+                <EditText
+                    android:id="@+id/card_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="Enter your Card Number"
+                    style="@style/EditTextStyle"
+                    android:textColorHint="#DEDADA"
+                    android:layout_marginTop="@dimen/space_top" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Expiration Date"
+                        style="@style/Customtextview"
+                        android:layout_marginTop="@dimen/padding_top"
+                        android:id="@+id/id_exdate"
+                        />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/space_left"
+                        android:layout_marginRight="@dimen/space_right"
+                        style="@style/CustomHintColor"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:layout_marginTop="@dimen/space_top"
+                        android:textSize="@dimen/font_size"
+                        android:layout_below="@+id/id_exdate"
+                        android:id="@+id/exp_date"
+                        android:background="@drawable/btn_shape"
+                        android:foreground="@drawable/effect"
+                        android:padding="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CVC Code"
+                        style="@style/Customtextview"
+                        android:layout_marginTop="@dimen/padding_top"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/code_cvcode"
+                        android:layout_marginRight="27dp"
+                        />
+                    <EditText
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:hint="CVC"
+                        style="@style/CustomHintColor"
+                        android:id="@+id/cvc_no"
+                        android:layout_marginTop="@dimen/space_top"
+                        android:textSize="@dimen/font_size"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:layout_below="@+id/code_cvcode"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/cvc_right"/>
+                </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Payment Note"
+                    style="@style/Customtextview"
+                    android:layout_marginTop="@dimen/padding_top"/>
+                <EditText
+                    android:id="@+id/payment_note"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="Payment Note"
+                    android:textColorHint="#DEDADA"
+                    style="@style/EditTextStyle"
+                    android:layout_marginTop="@dimen/space_top"/>
+                <TextView
+                    android:id="@+id/profile_name_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profile Name"
+                    style="@style/Customtextview"
+                    android:layout_marginTop="@dimen/padding_top"/>
+                <EditText
+                    android:id="@+id/profile_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="Enter your profile name"
+                    android:textColorHint="#DEDADA"
+                    style="@style/EditTextStyle"
+                    android:layout_marginTop="@dimen/space_top"/>
+                <CheckBox
+                    android:id="@+id/chkSave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Save as Payment Profile name"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#535353"
+                    android:textSize="@dimen/font_size"/>
+
+                <CheckBox
+                    android:id="@+id/chkAgree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I agree that this payment is not refundable."
+                    android:checked="true"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#535353"
+                    android:textSize="@dimen/font_size"/>
+                <Button
+                    android:id="@+id/paynowBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PAY NOW"
+                    style="@style/CustomButton"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="15dp"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
+

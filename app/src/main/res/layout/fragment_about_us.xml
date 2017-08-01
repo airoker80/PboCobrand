@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:background="#0d88e4"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_heading"
+            android:textAlignment="center"
+            android:textSize="18sp"/>
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"    
+            android:text="@string/about_heading_details"
+            android:textSize="18sp"/>
+
+        <TextView
+        android:background="#0d88e4"
+        android:id="@+id/textView"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:text="Services "
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+<!--
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/radiobutton_on_background"
+                android:layout_toLeftOf="@id/a"/>
+-->
+            <TextView
+                android:layout_marginTop="12dp"
+                android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/ic_right_arrow"
+                android:id="@+id/a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="12dp"
+                android:text=" PAYMENT GATEWAY "
+                android:textSize="18sp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <TextView
+                android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/ic_right_arrow"
+                android:layout_marginTop="12dp"
+                android:id="@+id/b"
+                android:layout_below="@+id/a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="12dp"
+                android:text=" MERCHANT SERVICE"
+                android:textSize="18sp"/>
+            <TextView
+                android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/ic_right_arrow"
+                android:layout_marginTop="12dp"
+                android:id="@+id/c"
+                android:layout_below="@+id/b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="12dp"
+                android:text="CROSS BORDER TRANSACTION"
+                android:textSize="18sp"/>
+            <TextView
+                android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/ic_right_arrow"
+                android:layout_marginTop="12dp"
+                android:id="@+id/d"
+                android:layout_below="@+id/c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="12dp"
+                android:text="BUSINESS PLATFORM"
+                android:textSize="18sp"/>
+
+        </RelativeLayout>
+        
+    </LinearLayout>
+</LinearLayout>

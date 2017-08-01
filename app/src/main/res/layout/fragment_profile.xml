@@ -1,0 +1,142 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".PBOCobrand.Fragment.ProfileFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/content_frame_profile">
+
+    </FrameLayout>
+
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/profileOptionsTabMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        android:elevation="0dp"
+        android:src="@drawable/fab_btn"
+        fab:menu_animationDelayPerItem="55"
+        fab:menu_backgroundColor="@android:color/transparent"
+        fab:menu_buttonSpacing="0dp"
+        fab:menu_colorNormal="#2BCAAA"
+        fab:menu_colorPressed="#2BCAAA"
+        fab:menu_colorRipple="#99d4d4d4"
+        fab:menu_fab_label=""
+        fab:menu_fab_size="normal"
+        fab:menu_labels_colorNormal="#fff"
+        fab:menu_labels_colorPressed="#0D000000"
+        fab:menu_labels_colorRipple="#66efecec"
+        fab:menu_labels_cornerRadius="3dp"
+        fab:menu_labels_ellipsize="none"
+        fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
+        fab:menu_labels_margin="0dp"
+        fab:menu_labels_maxLines="-1"
+        fab:menu_labels_padding="8dp"
+        fab:menu_labels_position="left"
+        fab:menu_labels_showAnimation="@anim/fab_slide_out_to_left"
+        fab:menu_labels_showShadow="true"
+        fab:menu_labels_singleLine="false"
+        fab:menu_labels_textColor="#3E3E3E"
+        fab:menu_labels_textSize="15sp"
+        fab:menu_openDirection="up"
+        fab:menu_shadowXOffset="1dp"
+        fab:menu_shadowYOffset="4dp"
+        fab:menu_showShadow="true"
+        fab:menu_shadowColor="#66000000"
+        fab:menu_shadowRadius="4dp"
+        >
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/userProfileInfo"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@drawable/user1"
+            fab:fab_label="User Info"
+            fab:fab_size="mini"
+            fab:borderWidth="0dp"
+            fab:paddingEnd="0dp"
+            fab:paddingStart="0dp"
+            fab:menu_shadowColor="#40CDB2"
+            fab:menu_colorPressed="@color/transparent_white"
+            fab:fab_colorNormal="@color/background"
+            fab:fab_colorPressed="@color/transparent_white"
+            android:elevation="0dp"
+            />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/shippingAddress"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:elevation="0dp"
+            fab:fab_label="Shipping Address"
+            fab:fab_size="mini"
+            fab:menu_shadowColor="#000000"
+            fab:menu_colorPressed="@color/transparent_white"
+            fab:fab_colorNormal="@color/background"
+            fab:fab_colorPressed="@color/transparent_white"
+            fab:menu_labels_textColor="#3E3E3E"
+            android:src="@drawable/delivery123"
+
+            />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/billingAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@drawable/invoice"
+            android:elevation="0dp"
+            fab:fab_label="Billing Address"
+            fab:fab_size="mini"
+            fab:menu_shadowColor="#40CDB2"
+            fab:menu_colorPressed="@color/transparent_white"
+            fab:fab_colorNormal="@color/background"
+            fab:fab_colorPressed="@color/transparent_white"
+
+            />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/paymentProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/payment_card"
+            android:elevation="0dp"
+            fab:fab_label="Payment Profile"
+            fab:fab_size="mini"
+            fab:menu_shadowColor="#40CDB2"
+            fab:menu_colorPressed="@color/transparent_white"
+            fab:fab_colorNormal="@color/background"
+            fab:fab_colorPressed="@color/transparent_white"
+            />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/accountInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/information"
+            android:elevation="0dp"
+            fab:fab_label="Account Info"
+            fab:fab_size="mini"
+            fab:menu_shadowColor="#40CDB2"
+            fab:menu_colorPressed="@color/transparent_white"
+            fab:fab_colorNormal="@color/background"
+            fab:fab_colorPressed="@color/transparent_white"
+
+            />
+    </com.github.clans.fab.FloatingActionMenu>
+
+
+
+</RelativeLayout>
+
+

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:id="@+id/coordinatorLayout">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:layout_marginBottom="10dp">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/serviceCatView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_weight="0.5"
+                >
+
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:background="#ffffff"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Popular Services"
+                    android:textColor="#146596"
+                    android:textSize="20sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E7E7E7"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    />
+                <View
+                    android:layout_width="70dp"
+                    android:layout_height="2dp"
+                    android:background="#FF8300"
+                    android:layout_marginLeft="10dp"/>
+
+                <android.support.v4.view.ViewPager
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/view_pager"
+                    android:layout_alignTop="@+id/layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="@dimen/viewpager_margin_fix"
+                    android:layout_marginRight="@dimen/viewpager_margin_fix"/>
+
+            </LinearLayout>
+
+
+
+
+            <RelativeLayout
+                android:id="@+id/viewPagerIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="5dp"
+                android:gravity="center">
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:id="@+id/dots"
+                    />
+                <!--
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ntc"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="dkfkdjf"
+                                    android:textColor="@color/primary_dark"/>-->
+
+
+                <!--<ImageButton-->
+                <!--android:id="@+id/btn_finish"-->
+                <!--android:layout_width="42dip"-->
+                <!--android:layout_height="42dip"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_marginRight="15dip"-->
+                <!--android:contentDescription="Let's start"-->
+                <!--android:src="@drawable/ntc"-->
+                <!--android:visibility="gone" />-->
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    </android.support.design.widget.CoordinatorLayout>

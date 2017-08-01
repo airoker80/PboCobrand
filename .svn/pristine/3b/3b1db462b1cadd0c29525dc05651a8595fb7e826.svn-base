@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
+    android:background="@color/nav_menu_pressed"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/circular_img"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/profile_img"
+        android:gravity="center">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="@dimen/circular_img"
+            android:layout_height="@dimen/circular_img"
+            android:src="@mipmap/ic_launcher"
+            android:clickable="true"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#0B5F92"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txtbalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Balance : "
+                android:textColor="#0B5F92"
+                android:textSize="@dimen/balnc_textsize"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"/>
+            <TextView
+                android:id="@+id/userBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#EE801F"
+                android:text="0.00"
+                android:gravity="center"
+                android:layout_toRightOf="@+id/txtbalance"
+                android:textSize="@dimen/balnc_textsize"
+                android:layout_alignParentBottom="true"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

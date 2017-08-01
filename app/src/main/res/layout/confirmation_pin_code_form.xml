@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="5dp"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+   <!-- <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Pin Code"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/confirmationPin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberPassword"/>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Pin Code"
+            style="@style/Customtextview"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:layout_marginTop="15dp"
+            android:textSize="@dimen/text_size"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberPassword"
+            android:id="@+id/confirmationPin"
+            android:layout_marginLeft="@dimen/space_left"
+            android:layout_marginRight="@dimen/space_right"
+            style="@style/EditTextStyle"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:paddingTop="@dimen/space_top"
+            android:textSize="@dimen/font_size" />
+
+        <TextView
+            android:id="@+id/pinCodeHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Request pin code.Click Here"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:textSize="@dimen/small_size"
+
+            />
+        <TextView
+            android:id="@+id/pinCodeRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:clickable="true"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+    <!--<TextView-->
+        <!--android:id="@+id/pinCodeHeading"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Request pin code.Click Here"-->
+        <!--android:layout_marginLeft="@dimen/margin_left"-->
+        <!--android:textSize="@dimen/small_size"-->
+
+        <!--/>-->
+    <!--<TextView-->
+        <!--android:id="@+id/pinCodeRequest"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:clickable="true"-->
+        <!--android:textSize="10sp" />-->
+
+</LinearLayout>

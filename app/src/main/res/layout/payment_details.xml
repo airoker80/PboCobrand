@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    android:orientation="horizontal" >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view003"
+            android:layout_gravity="top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:longClickable="true"
+            android:orientation="vertical"
+            card_view:cardUseCompatPadding="true"
+            card_view:cardCornerRadius="4dp"
+            card_view:contentPadding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Payment Details"
+                        android:textColor="#0B5F92"
+                        android:textSize="17sp"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#E7E7E7"/>
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="2dp"
+                        android:background="#FF8300"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Payment Amount:"
+                        android:paddingTop="5dp"
+                        android:textColor="#3E3E3E"/>
+                    <TextView
+                        android:id="@+id/payment_amt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="NPR रू. 1.00"
+                        android:gravity="right"
+                        android:paddingTop="5dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/info_text002"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Payment Type Service Charge(Value):"
+                        android:textColor="#3E3E3E"
+                        />
+
+                    <TextView
+                        android:id="@+id/ptSev_chg_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="4.50 %"
+                        android:gravity="right"/>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Payment Type Service Charge(Amount):"
+                        android:textColor="#3E3E3E"/>
+
+
+                    <TextView
+                        android:id="@+id/ptSev_chg_amt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=" USD 0.00"
+                        android:gravity="right"/>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Net Payment Amount:"
+                        android:textColor="#3E3E3E"/>
+
+
+                    <TextView
+                        android:id="@+id/net_payment_amt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=" NPR रू. 1.05"
+                        android:gravity="right"/>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Payment Gateway:"
+                        android:textColor="#3E3E3E"/>
+
+
+                    <TextView
+                        android:id="@+id/payment_gateway"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="PayPal"
+                        android:gravity="right"/>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Payment Method:"
+                        android:textColor="#3E3E3E"/>
+
+
+                    <TextView
+                        android:id="@+id/pay_method"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Auto"
+                        android:gravity="right"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Payment Currency:"
+                        android:textColor="#3E3E3E"/>
+
+
+                    <TextView
+                        android:id="@+id/pay_curr"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=" USD"
+                        android:gravity="right"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Exchange Rate:"
+                        android:textColor="#3E3E3E"/>
+
+
+                    <TextView
+                        android:id="@+id/exchg_rate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=" 104.30"
+                        android:gravity="right"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Paying Amount:"
+                        android:textColor="#3E3E3E"/>
+
+
+                    <TextView
+                        android:id="@+id/pay_amt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=" USD 0.01"
+                        android:gravity="right"/>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Payment Profile saved as :"
+                        android:textColor="#3E3E3E"/>
+
+
+                    <TextView
+                        android:id="@+id/save_profile_as"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=" Saroj Timsina"
+                        android:gravity="right"/>
+
+
+                </LinearLayout>
+
+
+
+                <Button
+                    android:id="@+id/pay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CONFIRM ORDER"
+                    android:textColor="#0B5F92"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/size_font"
+                    android:background="@drawable/effect"
+                    android:layout_marginTop="10dp"
+
+
+                    />
+
+
+            </LinearLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>

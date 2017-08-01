@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--<item
+        android:id="@+id/logout"
+        android:orderInCategory="100"
+        android:title="Sign Out"/>
+-->
+    <!--<item
+        android:id="@+id/addMoney"
+        android:orderInCategory="100"
+        android:title="Add Money"/>
+-->
+    <!--<item
+        android:id="@+id/sendMoney"
+        android:orderInCategory="103"
+        android:title="Send Money"/>-->
+
+    <!--<item
+        android:id="@+id/addServices"
+        android:orderInCategory="104"
+        app:showAsAction="never"
+        android:title="Add Services"/>-->
+
+<!--
+    <item
+        android:id="@+id/trans_adv_search"
+        android:title="Advance Search"
+        android:icon="@drawable/search_plus"
+        app:showAsAction="ifRoom"
+        />
+-->
+ <!--   <item
+        android:id="@+id/nibl"
+        android:title="NIBL"
+        app:showAsAction="ifRoom"
+        />-->
+    <item
+        android:id="@+id/menu_item_action_parameters"
+        android:title="Share"
+        android:icon="@drawable/share"
+        app:showAsAction="ifRoom"
+        >
+    <menu>
+        <item
+            android:id="@+id/btnGplus"
+            android:title="Google Plus"
+            app:showAsAction="withText"
+            android:icon="@mipmap/g_plus"/>
+        <item
+            android:id="@+id/btnFb"
+            android:title="Facebook"
+            android:icon="@drawable/facebook"/>
+        <item
+            android:id="@+id/btnTwitter"
+            android:title="Twitter"
+            android:icon="@drawable/twite"/>
+        <item
+            android:id="@+id/btnGmail"
+            android:title="Gmail"
+            android:icon="@mipmap/g_mail"/>
+        <item
+            android:id="@+id/btnYahooMail"
+            android:title="Yahoo Mail"
+            android:icon="@mipmap/yahoo"/>
+        <item
+            android:id="@+id/btnViber"
+            android:title="Viber"
+            android:icon="@mipmap/viber"/>
+
+        <item
+            android:id="@+id/btnSkype"
+            android:title="Skype"
+            android:icon="@mipmap/skype"/>
+        <item
+            android:id="@+id/btnLinkedin"
+            android:title="Linkedin"
+            android:icon="@mipmap/linkedin"/>
+        <item
+            android:id="@+id/btnMicrosoftOutlook"
+            android:title="Microsoft Outlook"
+            android:icon="@mipmap/ms_outlook"/>
+
+
+    </menu>
+    </item>
+
+
+    <!--<item
+        android:id="@+id/addMoney"
+        android:alphabeticShortcut="a"
+        android:orderInCategory="1"
+        app:showAsAction="always"
+        android:menuCategory="secondary"
+        android:visible="true"
+        android:title="Add Money"/>-->
+</menu>

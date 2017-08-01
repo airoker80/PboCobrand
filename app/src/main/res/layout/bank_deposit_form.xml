@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:id="@+id/coordinatorLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="@dimen/bank_img"
+            android:layout_height="@dimen/bank_img"
+            android:src="@mipmap/ic_launcher"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#0395E0"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/bank_img"
+            android:padding="5dp"/>
+        <!--<ImageView-->
+            <!--android:layout_width="70dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:id="@+id/bank_img"-->
+            <!--android:layout_below="@+id/voucher_number"-->
+            <!--android:src="@drawable/nic"/>-->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:gravity="right">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount[NPR]:"
+                android:textColor="#0B5F92"
+                android:textSize="@dimen/font_size"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/margin_left"
+                android:textStyle="bold"/>
+
+            <TextView
+                 android:id="@+id/amtVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 5052.37"
+                android:textColor="#EE801F"
+                android:textSize="@dimen/font_size"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cheque Voucher Number"
+            style="@style/Customtextview"
+            android:layout_marginTop="15dp"
+            android:id="@+id/voucher_number"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
+                android:hint="Enter voucher number"
+                style="@style/EditTextStyle"
+                android:id="@+id/id_voucherNo"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tay_pic"
+                android:layout_below="@+id/id_voucherNo"
+                android:id="@+id/depositSlipImage"
+                android:visibility="gone"
+                android:src="@mipmap/ic_launcher"
+                android:scaleType="fitXY"/>
+
+            <TextView
+                android:clickable="true"
+                android:id="@+id/depositSlip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Browse Deposit Slip"
+                android:textColor="#0B5F92"
+                android:textSize="12sp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/depositSlipImage"
+                android:layout_toEndOf="@+id/depositSlipImage"
+                android:layout_alignRight="@+id/id_voucherNo"/>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment Note"
+            style="@style/Customtextview"
+            android:layout_marginTop="20dp"
+            android:id="@+id/payment_note"
+            android:layout_below="@+id/depositSlipImage"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Payment note"
+            style="@style/EditTextStyle"
+            android:layout_below="@+id/payment_note"
+            android:id="@+id/id_note_pay"/>
+
+        <TextView
+            android:id="@+id/profile_name_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile Name"
+            style="@style/Customtextview"
+            android:layout_marginTop="@dimen/padding_top"/>
+        <EditText
+            android:id="@+id/profile_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Enter your profile name"
+            android:textColorHint="#DEDADA"
+            style="@style/EditTextStyle"
+            android:layout_marginTop="@dimen/space_top"/>
+        <CheckBox
+            android:id="@+id/chkSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save as Payment Profile name"
+            android:layout_marginTop="20dp"
+            android:textColor="#535353"
+            android:textSize="@dimen/font_size"/>
+
+        <ImageView
+            android:id="@+id/voucher_img"
+            android:layout_width="fill_parent"
+            android:layout_height="20dp"
+            android:visibility="gone"
+            />
+
+        <CheckBox
+            android:id="@+id/chkAgree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I agree that this payment is not refundable."
+            android:checked="true"
+            android:layout_marginTop="10dp"
+            android:textColor="#535353"
+            android:textSize="@dimen/font_size"
+            android:layout_below="@+id/id_note_pay"
+            />
+
+        <Button
+            android:id="@+id/id_btnPayNow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PAY NOW"
+            style="@style/CustomButton"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/chkAgree"
+            android:padding="10dp"/>
+    </LinearLayout>
+</LinearLayout>
+    </ScrollView>
+</android.support.design.widget.CoordinatorLayout>

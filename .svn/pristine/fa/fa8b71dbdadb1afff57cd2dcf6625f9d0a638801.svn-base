@@ -1,0 +1,395 @@
+package com.paybyonline.Fragment;
+
+
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.CardView;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+
+import com.loopj.android.http.RequestParams;
+import com.paybyonline.Activity.DashBoardActivity;
+import com.paybyonline.R;
+import com.paybyonline.configuration.PayByOnlineConfig;
+import com.paybyonline.serverdata.PboServerRequestHandler;
+import com.paybyonline.serverdata.PboServerRequestListener;
+import com.paybyonline.usersession.MyUserSessionManager;
+import com.paybyonline.usersession.ShowMyAlertProgressDialog;
+import com.paybyonline.usersession.UserDeviceDetails;
+import com.paybyonline.util.PasswordValidator;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class SettingFragment extends Fragment {
+
+    UserDeviceDetails userDeviceDetails;
+    MyUserSessionManager myUserSessionManager;
+    ShowMyAlertProgressDialog showMyAlertProgressDialog;
+    CoordinatorLayout coordinatorLayout;
+    PboServerRequestHandler handler;
+
+    CardView changePassword;
+    CardView resetPin;
+    CardView updateAppDefaultPage;
+
+    RadioGroup radioDefaultPage;
+    PasswordValidator passwordValidator;
+    public SettingFragment() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_setting, container, false);
+
+        ((DashBoardActivity) getActivity()).setTitle("Settings");
+        // to reset menu item
+        setHasOptionsMenu(true);
+        passwordValidator = new PasswordValidator();
+        userDeviceDetails = new UserDeviceDetails(getActivity());
+        myUserSessionManager = new MyUserSessionManager(getActivity());
+        showMyAlertProgressDialog = new ShowMyAlertProgressDialog(getActivity());
+        coordinatorLayout=(CoordinatorLayout)view.findViewById(R.id.coordinatorLayout);
+        resetPin=(CardView) view.findViewById(R.id.resetPin);
+        changePassword=(CardView) view.findViewById(R.id.changePassword);
+        updateAppDefaultPage=(CardView) view.findViewById(R.id.updateAppDefaultPage);
+        resetPin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showResetPinCodeForm();
+            }
+        });
+        changePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showChangePasswordForm();
+            }
+        });
+
+        updateAppDefaultPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateAppDefaultPageForm();
+            }
+        });
+
+
+        return view;
+    }
+
+    public void updateAppDefaultPageForm(){
+        final AlertDialog alertDialog = new AlertDialog.Builder(getContext())
+                .setPositiveButton("UPDATE", null)
+                .setNegativeButton("CANCEL", null)
+                .create();
+
+        LayoutInflater inflater = LayoutInflater.from(getContext());
+        final View dialogView = inflater.inflate(R.layout.setting_layout_default_page, null);
+        radioDefaultPage = (RadioGroup) dialogView.findViewById(R.id.radioDefaultPage);
+
+        RadioButton selectedRadio;
+        if(myUserSessionManager.getKeyDefaultPage().length()>0){
+            switch (myUserSessionManager.getKeyDefaultPage()){
+                case "Dashboard":
+                    radioDefaultPage.check(R.id.dashboardRadio);
+                    break;
+                case "Buy/Recharge":
+                    radioDefaultPage.check(R.id.buyRechargeRadio);
+                    break;
+                case "Add Money":
+                    radioDefaultPage.check(R.id.addMoneyRadio);
+                    break;
+                case "Send Money":
+                    radioDefaultPage.check(R.id.sendMoneyRadio);
+                    break;
+                case "Report":
+                    radioDefaultPage.check(R.id.reportRadio);
+                    break;
+                default:
+                    radioDefaultPage.check(R.id.buyRechargeRadio);
+                    break;
+            }
+        }else{
+            radioDefaultPage.check(R.id.buyRechargeRadio);
+        }
+
+        alertDialog.setView(dialogView);
+        alertDialog.setTitle("Default Page");
+        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                final Button btnAccept = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                btnAccept.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int selectedId = radioDefaultPage.getCheckedRadioButtonId();
+                        RadioButton selectedRadio = (RadioButton) dialogView.findViewById(selectedId);
+                        myUserSessionManager.setKeyDefaultPage(selectedRadio.getText().toString());
+                        userDeviceDetails.showToast("Default Page Updated");
+                        alertDialog.dismiss();
+                    }
+                });
+
+                final Button btnDecline = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+                btnDecline.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                    }
+                });
+            }
+        });
+
+        alertDialog.show();
+    }
+
+    public void showChangePasswordForm(){
+
+        final AlertDialog alertDialog = new AlertDialog.Builder(getContext())
+                .setPositiveButton("UPDATE", null)
+                .setNegativeButton("CANCEL", null)
+                .create();
+
+        LayoutInflater inflater = LayoutInflater.from(getContext());
+        View dialogView = inflater.inflate(R.layout.setting_layout_change_password, null);
+        final EditText userOldPassword=(EditText)dialogView.findViewById(R.id.userOldPassword);
+        final EditText userNewPassword=(EditText)dialogView.findViewById(R.id.userNewPassword);
+        final EditText userNewPasswordConfirm=(EditText)dialogView.findViewById(R.id.userNewPasswordConfirm);
+
+        alertDialog.setView(dialogView);
+        alertDialog.setTitle("Update Password");
+        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                final Button btnAccept = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                btnAccept.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(validateChangePasswordForm(userOldPassword, userNewPassword, userNewPasswordConfirm)){
+                            updateUserPassword(userOldPassword.getText().toString(), userNewPassword.getText().toString());
+                            alertDialog.dismiss();
+                        }
+                    }
+                });
+
+                final Button btnDecline = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+                btnDecline.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                    }
+                });
+            }
+        });
+
+        alertDialog.show();
+    }
+
+    public void updateUserPassword(String userOldPassword, String userNewPassword){
+        RequestParams params = new RequestParams();
+        params.put("parentTask", "rechargeApp");
+        params.put("childTask", "updatePassword");
+        params.put("userCode", myUserSessionManager.getSecurityCode());
+        params.put("authenticationCode", myUserSessionManager.getAuthenticationCode());
+        params.put("userOldPassword", userOldPassword);
+        params.put("userNewPassword", userNewPassword);
+        handler = PboServerRequestHandler.getInstance(coordinatorLayout,getActivity());
+
+        handler.makeRequest(PayByOnlineConfig.SERVER_ACTION, "Please Wait !!!", params, new PboServerRequestListener() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+
+                try {
+                    handleUpdateUserPasswordResponse(response);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void handleUpdateUserPasswordResponse(JSONObject response) throws JSONException{
+        userDeviceDetails.showToast(response.getString("msg"));
+        if(response.getString("msgTitle").equals("Success")){
+            myUserSessionManager.saveUserInformation(response.getString("username"),
+                    response.getString("authenticationCode"), response.getString("userCode"));
+        }
+    }
+
+    public Boolean validateChangePasswordForm(EditText userOldPassword, EditText userNewPassword, EditText userNewPasswordConfirm){
+
+        if(userOldPassword.getText().toString().isEmpty()){
+            userOldPassword.setError("Required");
+            return false;
+        }else{
+            userOldPassword.setError(null);
+        }
+
+        if(userNewPassword.getText().toString().isEmpty()){
+            userNewPassword.setError("Required");
+            return false;
+        }else{
+            userNewPassword.setError(null);
+        }
+
+        if(passwordValidator.validate(userNewPassword.getText().toString())){
+            userNewPassword.setError(null);
+        }else{
+            userNewPassword.setError("Password must contains at least 8 characters,one upper case letter,lower case letter,special character and numeric digit.");
+            return false;
+        }
+
+        if(userNewPasswordConfirm.getText().toString().isEmpty()){
+            userNewPasswordConfirm.setError("Required");
+            return false;
+        }else{
+            userNewPasswordConfirm.setError(null);
+        }
+
+        if(!userNewPassword.getText().toString().equals(userNewPasswordConfirm.getText().toString())){
+            userNewPasswordConfirm.setError("Password doesn't match");
+            return false;
+        }else{
+            userNewPasswordConfirm.setError(null);
+        }
+
+        return true;
+    }
+
+
+
+    public void showResetPinCodeForm(){
+
+         final AlertDialog alertDialog = new AlertDialog.Builder(getContext())
+                .setPositiveButton("RESET", null)
+                .setNegativeButton("CANCEL", null)
+                .create();
+
+        LayoutInflater inflater = LayoutInflater.from(getContext());
+        View dialogView = inflater.inflate(R.layout.setting_layout_reset_pincode, null);
+        final EditText userPassword=(EditText)dialogView.findViewById(R.id.userPassword);
+        final EditText userPinCode=(EditText)dialogView.findViewById(R.id.userPinCode);
+        final EditText userPinCodeConfirm=(EditText)dialogView.findViewById(R.id.userPinCodeConfirm);
+
+        alertDialog.setView(dialogView);
+        alertDialog.setTitle("Reset Pin Code");
+        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                final Button btnAccept = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                btnAccept.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(validateResetPinForm(userPassword, userPinCode, userPinCodeConfirm)){
+                            resetUserPinCode(userPassword.getText().toString(), userPinCode.getText().toString());
+                            alertDialog.dismiss();
+                        }
+                    }
+                });
+
+                final Button btnDecline = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+                btnDecline.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                    }
+                });
+            }
+        });
+
+        alertDialog.show();
+    }
+
+    public Boolean validateResetPinForm(EditText userPassword, EditText userPinCode, EditText userPinCodeConfirm){
+
+        if(userPassword.getText().toString().isEmpty()){
+            userPassword.setError("Required");
+            return false;
+        }else{
+            userPassword.setError(null);
+        }
+
+        if(userPinCode.getText().toString().isEmpty()){
+            userPinCode.setError("Required");
+            return false;
+        }else{
+            userPinCode.setError(null);
+        }
+
+        String minLength = "4";
+        if (minLength.equals(userPinCode.getText().toString().length()+"")) {
+            userPinCode.setError(null);
+        }else {
+            userPinCode.setError("4 Digit Transaction Pin Code Required");
+            return false;
+        }
+
+        if(userPinCodeConfirm.getText().toString().isEmpty()){
+            userPinCodeConfirm.setError("Required");
+            return false;
+        }else{
+            userPinCodeConfirm.setError(null);
+        }
+
+        if(!userPinCode.getText().toString().equals(userPinCodeConfirm.getText().toString())){
+            userPinCodeConfirm.setError("Pin Code doesn't match");
+            return false;
+        }else{
+            userPinCodeConfirm.setError(null);
+        }
+
+        return true;
+    }
+
+    public void resetUserPinCode(String userPassword, String userPinCode){
+        RequestParams params = new RequestParams();
+        params.put("parentTask", "rechargeApp");
+        params.put("childTask", "resetUserPinCode");
+        params.put("userCode", myUserSessionManager.getSecurityCode());
+        params.put("authenticationCode", myUserSessionManager.getAuthenticationCode());
+        params.put("userPassword", userPassword);
+        params.put("userPinCode", userPinCode);
+        handler = PboServerRequestHandler.getInstance(coordinatorLayout,getActivity());
+
+        handler.makeRequest(PayByOnlineConfig.SERVER_ACTION, "Please Wait !!!", params, new PboServerRequestListener() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+
+                try {
+                    handleResetUserPinCodeResponse(response);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void handleResetUserPinCodeResponse(JSONObject response) throws JSONException{
+        userDeviceDetails.showToast(response.getString("msg"));
+    }
+
+
+
+
+}
