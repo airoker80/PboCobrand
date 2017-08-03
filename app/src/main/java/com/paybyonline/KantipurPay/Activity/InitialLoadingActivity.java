@@ -175,9 +175,10 @@ public class InitialLoadingActivity extends AppCompatActivity {
     public void loadAppPages(){
         progressbar.setVisibility(View.GONE);
         refresh.setVisibility(View.VISIBLE);
-        if(pboServerRequestHandler.isConnected()){
-            startActivity(new Intent(getApplicationContext(),
-                    DashBoardActivity.class));
+/*        if(pboServerRequestHandler.isConnected()){startActivity(new Intent(getApplicationContext(), DashBoardActivity.class));
+            InitialLoadingActivity.this.finish();
+        }*/
+        if(pboServerRequestHandler.isConnected()){startActivity(new Intent(getApplicationContext(), UserEmailVerificationActivity.class));
             InitialLoadingActivity.this.finish();
         }
     }

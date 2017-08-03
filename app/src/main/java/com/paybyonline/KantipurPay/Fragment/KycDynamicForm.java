@@ -76,7 +76,7 @@ public class KycDynamicForm extends Fragment  {
 
     JSONArray verificationArray;
     File imgFile;
-    String compressedFileName,imgFileName,name;
+    String compressedFilefieldTagName,imgFilefieldTagName,fieldTagName;
     View view;
 
 
@@ -84,7 +84,7 @@ public class KycDynamicForm extends Fragment  {
     TextView testTextview;
     String encodedString;
     ProgressDialog prgDialog;
-    String fileName = "";
+    String filefieldTagName = "";
     Bitmap updatedImageBitmap;
     ImageView profileImage;
     String imgPath = "";
@@ -146,17 +146,17 @@ public class KycDynamicForm extends Fragment  {
 
         obj.put("verificationId",verificationArray);
         Log.d("dynamic",response.toString());
-        String statusName =response.getString("status");
+        String statusfieldTagName =response.getString("status");
         verified.setTag("verified");
-        if (statusName=="R"){
+        if (statusfieldTagName=="R"){
             verified.setText("Rejected");
 
 
         }
-        if (statusName=="P"){
+        if (statusfieldTagName=="P"){
             verified.setText("Pending");
         }
-        if (statusName=="V"){
+        if (statusfieldTagName=="V"){
             verified.setText("Verified");
         }
         dynamicLayout.addView(verified);
@@ -167,7 +167,7 @@ public class KycDynamicForm extends Fragment  {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
             String alias = jsonObject.getString("alias");
             dynamicLayout.addView(alaisTxt);
-            String name = jsonObject.getString("name");
+            String fieldTagName = jsonObject.getString("name");
             String required = jsonObject.getString("required");
             String type = jsonObject.getString("type");
             if (required.equals("Yes")){
@@ -179,17 +179,17 @@ public class KycDynamicForm extends Fragment  {
 
             if (type.equals("Select")){
 
-                List<String> allNames = new ArrayList<String>();
+                List<String> spinnerList = new ArrayList<String>();
                 Spinner spinner = new Spinner(getContext());
-                spinner.setTag(name);
+                spinner.setTag(fieldTagName);
 //                spinner.setTag("spinner"+i);
                 JSONArray jsonArray1 = jsonObject.getJSONArray("from");
                 for (int j=0;j<jsonArray1.length();j++){
-                    String arryElm = jsonArray1.getString(j);
-                    allNames.add(arryElm);
+                    String fromString = jsonArray1.getString(j);
+                    spinnerList.add(fromString);
                 }
                 ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>
-                        (getContext(), android.R.layout.simple_spinner_item,allNames );
+                        (getContext(), android.R.layout.simple_spinner_item,spinnerList );
 
                 dataAdapter.setDropDownViewResource
                         (android.R.layout.simple_spinner_dropdown_item);
@@ -200,55 +200,54 @@ public class KycDynamicForm extends Fragment  {
                 EditText editText = new EditText(getContext());
 
                 if (required.equals("Yes")){
-                    editText.setTag(name+"#");
+                    editText.setTag(fieldTagName+"#");
                 }else {
-                    editText.setTag(name);
+                    editText.setTag(fieldTagName);
                 }
 
 //                editText.setTag("text"+i);
                 dynamicLayout.addView(editText);
             }
             if (type.equals("File")){
-                 final String fileEncodedString = "";
-                 final String filename = "";
+                 final String filefieldTagName = "";
                 final Button fileButton = new Button(getContext());
                 TextView textFileHidden= new TextView(getContext());
                 fileButton.setText(alias);
                 if (required.equals("Yes")){
-//                    fileButton.setTag(name+"*");
-                    name=name+"#";
+//                    fileButton.setTag(fieldTagName+"*");
+                    fieldTagName=fieldTagName+"#";
                 }else {
-//                    fileButton.setTag(name);
+//                    fileButton.setTag(fieldTagName);
 
                 }
-                Log.v("name",name);
+                Log.v("fieldTagName",fieldTagName);
 //                fileButton.setTag("fileButton"+i);
                 dynamicLayout.addView(fileButton);
                 final TextView testView = new TextView(getContext());
                 if (required.equals("YES")){
-                    testView.setTag(name+"#");
+                    testView.setTag(fieldTagName+"#");
                 }else {
-                    testView.setTag(name);
+                    testView.setTag(fieldTagName);
                 }
                 testView.setVisibility(View.GONE);
                 dynamicLayout.addView(testView);
-                final String finalName = name;
+                final String finalfieldTagName = fieldTagName;
                 fileButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Log.v("fileNameTag",filename+"----=-0==");
-                        loadImageFromGallery(fileButton, finalName,filename,testView);
+                        Log.v("filefieldTagNameTag",filefieldTagName+"----=-0==");
+                        loadImageFromGallery(fileButton, finalfieldTagName,filefieldTagName,testView);
 //                        Log.d("file",file.toString());
                         Log.d("file----encode","============="+encodedString);
-//                        requestParams.put(name,encodedString);
-//                        requestParams.put("fileName",filename);
+//                        requestParams.put(fieldTagName,encodedString);
+//                        requestParams.put("filefieldTagName",filefieldTagName);
 
                     }
                 });
             }
             if (type.equals("DateTime")){
                 final Button button = new Button(getContext());
-                button.setTag(name);
+                button.setTag(fieldTagName);
 //                button.setTag("dateTime"+i);
                 button.setText(dateToday);
                 dynamicLayout.addView(button);
@@ -262,14 +261,14 @@ public class KycDynamicForm extends Fragment  {
             if (type.equals("Radio")){
 
                 RadioGroup radioGroup = new RadioGroup(getContext());
-                radioGroup.setTag(name);
+                radioGroup.setTag(fieldTagName);
 //                radioGroup.setTag("radioGroup"+i);
                 RadioButton radioButton = null;
-                JSONArray values = jsonObject.getJSONArray("values");
-                for (int k =0 ; k<values.length();k++){
+                JSONArray valuesArray = jsonObject.getJSONArray("valuesArray");
+                for (int k =0 ; k<valuesArray.length();k++){
                     radioButton = new RadioButton(getContext());
                     radioButton.setTag("radioButton"+i+k);
-                    JSONObject value = values.getJSONObject(k);
+                    JSONObject value = valuesArray.getJSONObject(k);
                     String rbString = value.getString("value");
 //                    dynamicLayout.removeAllViews();
                     radioButton.setText(rbString);
@@ -309,44 +308,44 @@ public class KycDynamicForm extends Fragment  {
 
                             View view = dynamicLayout.getChildAt(j);
                             if (view instanceof EditText){
-                                String tagname= (String) view.getTag();
-                                String tagnameTxt = ((EditText) view).getText().toString();
-                                Log.v("&&" ,tagname);
-                                if (tagname.contains("#")){
-                                    String[] splitTag = tagname.split("#");
+                                String tagfieldTagName= (String) view.getTag();
+                                String tagfieldTagNameTxt = ((EditText) view).getText().toString();
+                                Log.v("&&" ,tagfieldTagName);
+                                if (tagfieldTagName.contains("#")){
+                                    String[] splitTag = tagfieldTagName.split("#");
                                     String paramsEdit = splitTag[0];
                                     Log.v("afafafa",paramsEdit);
-                                    if(tagnameTxt.equals("")){
+                                    if(tagfieldTagNameTxt.equals("")){
                                         ((EditText) view).setError("please enter the field");
                                         requiredFlag=false;
                                     }
-                                    requestParams.put(paramsEdit,tagnameTxt);
-                                }else if (!tagname.contains("#")) {
-                                    requestParams.put(tagname,tagnameTxt);
+                                    requestParams.put(paramsEdit,tagfieldTagNameTxt);
+                                }else if (!tagfieldTagName.contains("#")) {
+                                    requestParams.put(tagfieldTagName,tagfieldTagNameTxt);
                                 }
 
 
                             }
                             if (view instanceof Spinner){
-                                String tagname= (String) view.getTag();
-                                String tagnameTxt = ((Spinner) view).getSelectedItem().toString();
-                                requestParams.put(tagname,tagnameTxt);
+                                String tagfieldTagName= (String) view.getTag();
+                                String tagfieldTagNameTxt = ((Spinner) view).getSelectedItem().toString();
+                                requestParams.put(tagfieldTagName,tagfieldTagNameTxt);
                             }
 
                             if (view instanceof TextView){
-                                String tagnameTxt = ((TextView) view).getText().toString();
-                                Log.v("tagnameTxt",tagnameTxt+"afafafaf");
+                                String tagfieldTagNameTxt = ((TextView) view).getText().toString();
+                                Log.v("tagfieldTagNameTxt",tagfieldTagNameTxt+"afafafaf");
                                 try {
-                                    String tagname= (String) view.getTag();
+                                    String tagfieldTagName= (String) view.getTag();
 
-                                    if (tagname.contains("#")) {
-                                        String[] splitTag = tagname.split("#");
+                                    if (tagfieldTagName.contains("#")) {
+                                        String[] splitTag = tagfieldTagName.split("#");
                                         String paramsEdit = splitTag[0];
-                                        if (tagnameTxt.equals("")) {
+                                        if (tagfieldTagNameTxt.equals("")) {
 //                                    ((Te) view).setError("please enter the field");
                                             requiredFlag = false;
                                         }
-                                        requestParams.put(paramsEdit, tagnameTxt);
+                                        requestParams.put(paramsEdit, tagfieldTagNameTxt);
                                     }
                                 }catch (Exception e){
                                     e.printStackTrace();
@@ -355,11 +354,11 @@ public class KycDynamicForm extends Fragment  {
                             }
                             if (view instanceof Button){
                                 try {
-                                    String tagname= (String) view.getTag();
-                                    String tagnameTxt = ((Button) view).getText().toString();
-                                    if (!tagname.contains("File")){
-                                        Log.d("tagname","*())"+tagname);
-                                        requestParams.put(tagname,tagnameTxt);
+                                    String tagfieldTagName= (String) view.getTag();
+                                    String tagfieldTagNameTxt = ((Button) view).getText().toString();
+                                    if (!tagfieldTagName.contains("File")){
+                                        Log.d("tagfieldTagName","*())"+tagfieldTagName);
+                                        requestParams.put(tagfieldTagName,tagfieldTagNameTxt);
                                     }
 
                                 }catch (Exception e){
@@ -368,18 +367,18 @@ public class KycDynamicForm extends Fragment  {
 
                             }
                             if (view instanceof RadioGroup){
-                                String tagname= (String) view.getTag();
+                                String tagfieldTagName= (String) view.getTag();
                                 int selectedId= ((RadioGroup)view).getCheckedRadioButtonId();
                                 RadioButton radioButton = (RadioButton)view.findViewById(selectedId);
-                                String tagnameTxt = radioButton.getText().toString();
-                                if (tagname.contains("#")){
-                                    if(tagnameTxt.equals("")){
+                                String tagfieldTagNameTxt = radioButton.getText().toString();
+                                if (tagfieldTagName.contains("#")){
+                                    if(tagfieldTagNameTxt.equals("")){
 //                                        ((RadioGroup) view).setError("please enter the field");
-                                        Toast.makeText(getContext(), "please enter valid "+tagname, Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getContext(), "please enter valid "+tagfieldTagName, Toast.LENGTH_SHORT).show();
                                         requiredFlag=false;
                                     }
                                 }
-                                requestParams.put(tagname,tagnameTxt);
+                                requestParams.put(tagfieldTagName,tagfieldTagNameTxt);
                             }
                         }
 
@@ -504,12 +503,12 @@ public class KycDynamicForm extends Fragment  {
             }
         }
     }
-    public void loadImageFromGallery(Button textView,String file,String imageFileName,TextView testView) {
+    public void loadImageFromGallery(Button textView,String file,String imageFilefieldTagName,TextView testView) {
 
-        imgFileName=imageFileName;
+        imgFilefieldTagName=imageFilefieldTagName;
         testTextview = testView;
-//        compressedFileName=file;
-        name=file;
+//        compressedFilefieldTagName=file;
+        fieldTagName=file;
         final int MyVersion = Build.VERSION.SDK_INT;
         if (MyVersion > Build.VERSION_CODES.LOLLIPOP_MR1) {
             if (!checkIfAlreadyhavePermission()) {
@@ -570,11 +569,11 @@ public class KycDynamicForm extends Fragment  {
                 System.out.println("WORKS");
             }
 
-            String fileNameSegments[] = imgPath.split("/");
-            fileName = fileNameSegments[fileNameSegments.length - 1];
-            imgFileName=fileName;
-//            testTextview.setText(fileName);
-            Log.i("msg ", "fileName : " + fileName + " imgPath : " + imgPath);
+            String filefieldTagNameSegments[] = imgPath.split("/");
+            filefieldTagName = filefieldTagNameSegments[filefieldTagNameSegments.length - 1];
+            imgFilefieldTagName=filefieldTagName;
+//            testTextview.setText(filefieldTagName);
+            Log.i("msg ", "filefieldTagName : " + filefieldTagName + " imgPath : " + imgPath);
 
             encodeImagetoString();
 
@@ -612,16 +611,16 @@ public class KycDynamicForm extends Fragment  {
                 byte[] byte_arr = stream.toByteArray();
                 // Encode Image to String
                 encodedString = Base64.encodeToString(byte_arr, 0);
-                compressedFileName=encodedString;
-//                requestParams.put(name,encodedString);
-                Log.d("adad",compressedFileName);
+                compressedFilefieldTagName=encodedString;
+//                requestParams.put(fieldTagName,encodedString);
+                Log.d("adad",compressedFilefieldTagName);
                 return "";
             }
 
             @Override
             protected void onPostExecute(String msg) {
                 prgDialog.hide();
-                Log.d("name",name +"===== \n"+ encodedString);
+                Log.d("fieldTagName",fieldTagName +"===== \n"+ encodedString);
                 testTextview.setText(encodedString);
 
 //                updateUserProfileImage();
