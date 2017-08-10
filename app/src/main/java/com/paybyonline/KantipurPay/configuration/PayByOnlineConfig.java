@@ -41,11 +41,11 @@ public class PayByOnlineConfig {
     public static final String STRIPE_PUBLISHABLE_KEY = "pk_live_G34XslJzjI7MRdWCo5cxXJ3F";
 //    public static final String BASE_URL = "http://192.168.1.54:8080/pbo/";
 //    public static final String BASE_URL = "http://192.168.1.93:9090/Pbo-Android/";
-//    public static final String BASE_URL = "http://192.168.1.96:8080/Pbo-Android/";
+    public static final String BASE_URL = "http://192.168.1.96:8080/Pbo-Android/";
 //    public static final String BASE_URL = "http://192.168.1.93:8080/Pbo-Android/";
 //    public static final String BASE_URL = "http://192.168.1.47:8080/Pbo-Android/";
 //    public static final String BASE_URL = "http://192.168.1.75:8080/Pbo-Android/";
-    public static final String BASE_URL = "http://138.197.14.125:8080/pbo/";
+//    public static final String BASE_URL = "http://138.197.14.125:8080/pbo/";
 //    public static final String BASE_URL = "https://www.paybyonline.com/";
 //    public static final String BASE_URL = "http://192.168.1.220:8080/Pbo-Android/";
     public static final String SERVER_URL =BASE_URL+"androidApp/";

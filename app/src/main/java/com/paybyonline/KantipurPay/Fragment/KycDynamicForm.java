@@ -68,7 +68,7 @@ import cz.msebera.android.httpclient.entity.mime.content.FileBody;
 
 public class KycDynamicForm extends Fragment  {
     public boolean requiredFlag=true ;
-
+    TextView kycStatus;
     RequestParams requestParams =new RequestParams();
     LinearLayout dynamicLayout;
     MyUserSessionManager myUserSessionManager;
@@ -101,6 +101,7 @@ public class KycDynamicForm extends Fragment  {
         view= inflater.inflate(R.layout.fragment_dynamic_kyc_form, container, false);
        dateToday = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         dynamicLayout=(LinearLayout) view.findViewById(R.id.dynamicLayout);
+       kycStatus=(TextView) view.findViewById(R.id.kycStatus);
 
 
 
@@ -147,6 +148,7 @@ public class KycDynamicForm extends Fragment  {
         obj.put("verificationId",verificationArray);
         Log.d("dynamic",response.toString());
         String statusfieldTagName =response.getString("status");
+        kycStatus.setText(statusfieldTagName);
         verified.setTag("verified");
         if (statusfieldTagName=="R"){
             verified.setText("Rejected");
@@ -184,10 +186,12 @@ public class KycDynamicForm extends Fragment  {
                 spinner.setTag(fieldTagName);
 //                spinner.setTag("spinner"+i);
                 JSONArray jsonArray1 = jsonObject.getJSONArray("from");
+//                Log.v("dataaa=====","=="+jsonObject.getString("data").toString());
                 for (int j=0;j<jsonArray1.length();j++){
                     String fromString = jsonArray1.getString(j);
                     spinnerList.add(fromString);
                 }
+
                 ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>
                         (getContext(), android.R.layout.simple_spinner_item,spinnerList );
 
@@ -195,6 +199,11 @@ public class KycDynamicForm extends Fragment  {
                         (android.R.layout.simple_spinner_dropdown_item);
                 spinner.setAdapter(dataAdapter);
                 dynamicLayout.addView(spinner);
+                int spinnerPosition = dataAdapter.getPosition(jsonObject.getString("data"));
+                spinner.setSelection(spinnerPosition);
+/*                for (int i1=0;i1<spinnerList.size();i++){
+
+                }*/
             }
             if (type.equals("Text")){
                 EditText editText = new EditText(getContext());
@@ -204,7 +213,9 @@ public class KycDynamicForm extends Fragment  {
                 }else {
                     editText.setTag(fieldTagName);
                 }
-
+                if(statusfieldTagName.equals("Pending")){
+                    editText.setText(jsonObject.getString("data"));
+                }
 //                editText.setTag("text"+i);
                 dynamicLayout.addView(editText);
             }
@@ -257,6 +268,9 @@ public class KycDynamicForm extends Fragment  {
                         showDatePicker(button);
                     }
                 });
+                if(statusfieldTagName.equals("Pending")){
+                    button.setText(jsonObject.getString("data"));
+                }
             }
             if (type.equals("Radio")){
 
@@ -264,7 +278,7 @@ public class KycDynamicForm extends Fragment  {
                 radioGroup.setTag(fieldTagName);
 //                radioGroup.setTag("radioGroup"+i);
                 RadioButton radioButton = null;
-                JSONArray valuesArray = jsonObject.getJSONArray("valuesArray");
+                JSONArray valuesArray = jsonObject.getJSONArray("values");
                 for (int k =0 ; k<valuesArray.length();k++){
                     radioButton = new RadioButton(getContext());
                     radioButton.setTag("radioButton"+i+k);
@@ -273,19 +287,39 @@ public class KycDynamicForm extends Fragment  {
 //                    dynamicLayout.removeAllViews();
                     radioButton.setText(rbString);
                     radioGroup.addView(radioButton);
-                    if (k==0){
-                        radioButton.setChecked(true);
+
+
+                    try {
+                        if(statusfieldTagName.equals("Pending")){
+//                    editText.setText(response.getString("data"));
+                            if (jsonObject.getString("data").equals("Male")){
+                                ((RadioButton)radioGroup.getChildAt(0)).setChecked(true);
+                            }else if (jsonObject.getString("data").equals("Female")) {
+                                ((RadioButton) radioGroup.getChildAt(1)).setChecked(true);
+                            }else if (jsonObject.getString("data").equals("Other")){
+                                ((RadioButton)radioGroup.getChildAt(2)).setChecked(true);
+                            }
+                        }else {
+                            if (k==0){
+                                radioButton.setChecked(true);
+                            }
+                        }
+                    }catch (Exception e){
+                        e.printStackTrace();
                     }
+
+
                 }
                 radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                         int selectedId = group.getCheckedRadioButtonId();
                         RadioButton radiochecked = (RadioButton)getView().findViewById(selectedId);
-                        Log.d("selectedRadio",radiochecked.getText().toString());
+//                        Log.d("selectedRadio",radiochecked.getText().toString());
                         radioGenderTxt=radiochecked.getText().toString();
                     }
                 });
+
                 dynamicLayout.addView(radioGroup);
 
             }
