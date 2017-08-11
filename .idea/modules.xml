@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PBOCobrand.iml" filepath="$PROJECT_DIR$/PBOCobrand.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PboCobrand.iml" filepath="$PROJECT_DIR$/PboCobrand.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
