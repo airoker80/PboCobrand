@@ -19,8 +19,10 @@ import android.widget.ProgressBar;
 
 import com.loopj.android.http.RequestParams;
 import com.paybyonline.KantipurPay.R;
+import com.paybyonline.KantipurPay.configuration.PayByOnlineConfig;
 import com.paybyonline.KantipurPay.serverdata.PboServerRequestHandler;
 import com.paybyonline.KantipurPay.serverdata.PboServerRequestListener;
+import com.paybyonline.KantipurPay.usersession.MyUserSessionManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,7 +31,9 @@ import cz.msebera.android.httpclient.Header;
 
 
 public class InitialLoadingActivity extends AppCompatActivity {
-
+    String primaryEmail,username="",brandImage="",brandName="";
+    String isVerified;
+    MyUserSessionManager myUserSessionManager;
     ImageView ivPlayOverlay;
     ImageView refresh;
     CoordinatorLayout coordinatorLayout;
@@ -46,6 +50,8 @@ public class InitialLoadingActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        myUserSessionManager=new MyUserSessionManager(getApplicationContext());
+//        getUserEmailVerificationStatus();
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
         progressbar=(ProgressBar)findViewById(R.id.progressbar);
         ivPlayOverlay=(ImageView)findViewById(R.id.ivPlayOverlay);
@@ -58,6 +64,7 @@ public class InitialLoadingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 progressbar.setVisibility(View.VISIBLE);
                 refresh.setVisibility(View.GONE);
+//                getUserEmailVerificationStatus();
                 doVersionCheck();
 //                loadAppPages();
             }
@@ -81,7 +88,9 @@ public class InitialLoadingActivity extends AppCompatActivity {
 
 //        loadAppPages();
         if(pboServerRequestHandler.isConnected()){
+//            getUserEmailVerificationStatus();
             doVersionCheck();
+
         }
 
     }
@@ -112,7 +121,9 @@ public class InitialLoadingActivity extends AppCompatActivity {
             if(jsonObject.getString("isLatest").equals("NO")){
                 appUpdateModel();
             }else{
-                loadAppPages();
+//                loadAppPages();
+                getUserEmailVerificationStatus();
+
             }
 
         } catch (JSONException e) {
@@ -175,12 +186,66 @@ public class InitialLoadingActivity extends AppCompatActivity {
     public void loadAppPages(){
         progressbar.setVisibility(View.GONE);
         refresh.setVisibility(View.VISIBLE);
-        if(pboServerRequestHandler.isConnected()){startActivity(new Intent(getApplicationContext(), DashBoardActivity.class));
-            InitialLoadingActivity.this.finish();
+        if(pboServerRequestHandler.isConnected()){
+
+            Log.e("isVerified","--->"+isVerified);
+            if (isVerified.equals("Yes")){
+                startActivity(new Intent(getApplicationContext(), DashBoardActivity.class));
+                InitialLoadingActivity.this.finish();
+            }else {
+                Intent intent = new Intent(this,UserEmailVerificationActivity.class);
+                Log.e("putextras", username + brandImage + brandName);
+                intent.putExtra("brandName",brandName);
+                intent.putExtra("username",username);
+                intent.putExtra("brandImage",brandImage);
+                startActivity(intent);
+//                startActivity(new Intent(getApplicationContext(), UserEmailVerificationActivity.class));
+                InitialLoadingActivity.this.finish();
+            }
+
         }
 /*        if(pboServerRequestHandler.isConnected()){startActivity(new Intent(getApplicationContext(), UserEmailVerificationActivity.class));
             InitialLoadingActivity.this.finish();
         }*/
+    }
+
+    private void getUserEmailVerificationStatus(){
+        RequestParams params=new RequestParams();
+        params.put("parentTask", "rechargeApp");
+        params.put("childTask", "getEmailVerificationStatus");
+        params.put("userCode", myUserSessionManager.getSecurityCode());
+        params.put("authenticationCode", myUserSessionManager.getAuthenticationCode());
+        //   params.put("authenticationCode", userSessionManager.getAuthenticationCode());
+
+        PboServerRequestHandler handler = PboServerRequestHandler.getInstance(coordinatorLayout,
+                InitialLoadingActivity.this);
+        Log.e("params==",params.toString());
+        handler.makeRequest(PayByOnlineConfig.SERVER_ACTION, "", params,
+                new PboServerRequestListener() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) throws JSONException {
+
+                        Log.i("PboServerRequestHandler", "dashboard");
+                        handleStatusResponse(response);
+                        //Toast.makeText(getApplicationContext(), "JSONObject "+response+"",Toast.LENGTH_LONG).show();
+                    }
+                });
+    }
+
+    private void handleStatusResponse(JSONObject response) throws JSONException {
+
+        Log.e("responseEmail",response.toString());
+        isVerified=response.getString("isVerified");
+        if (isVerified.equals("No")){
+            username=response.getString("username");
+            brandImage=response.getString("brandImage");
+            brandName=response.getString("brandName");
+        }
+
+/*        if (isVerified.equals("No")){
+            primaryEmail = response.getString("primaryEmail");
+        }*/
+        loadAppPages();
     }
 
 }

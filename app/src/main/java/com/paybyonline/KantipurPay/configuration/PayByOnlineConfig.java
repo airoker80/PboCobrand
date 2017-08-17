@@ -42,6 +42,7 @@ public class PayByOnlineConfig {
 //    public static final String BASE_URL = "http://192.168.1.54:8080/pbo/";
 //    public static final String BASE_URL = "http://192.168.1.93:9090/Pbo-Android/";
     public static final String BASE_URL = "http://192.168.1.96:8080/Pbo-Android/";
+//    public static final String BASE_URL = "http://192.168.1.41:8080/Pbo-Android/";
 //    public static final String BASE_URL = "http://192.168.1.93:8080/Pbo-Android/";
 //    public static final String BASE_URL = "http://192.168.1.47:8080/Pbo-Android/";
 //    public static final String BASE_URL = "http://192.168.1.75:8080/Pbo-Android/";

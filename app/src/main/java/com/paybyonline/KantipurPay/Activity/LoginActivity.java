@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             if (myUserSessionManager.ifUserHasCountry()) {
 //				userDeviceDetails.showToast("user has country");
                 startActivity(new Intent(getApplicationContext(),
-                        DashBoardActivity.class));
+                        InitialLoadingActivity.class));
 
             } else {
 //				userDeviceDetails.showToast("user has no country");
@@ -218,7 +218,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 if(myUserSessionManager.ifUserHasCountry()){
                     startActivity(new Intent(getApplicationContext(),
-                            DashBoardActivity.class));
+                            InitialLoadingActivity.class));
                 }else{
 //                    HttpAsyncTaskCountryList();
                     startActivity(new Intent(getApplicationContext(), AfterRegistration.class));
@@ -292,7 +292,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 myUserSessionManager.addUserCountry();
 
 
-                Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
+                Intent intent = new Intent(getApplicationContext(), InitialLoadingActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
                         Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
